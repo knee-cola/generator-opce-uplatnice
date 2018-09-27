@@ -1,0 +1,89 @@
+input, select {
+    display: block;
+    margin-bottom: .7em;
+}
+
+.uplatnica {
+    position: relative;
+    display: inline-block;
+}
+.uplatnica__element {
+    position: absolute;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 13px;
+    overflow: hidden;
+    white-space: normal;
+}
+
+.uplatnica__element-_primatelj,
+.uplatnica__element-_platitelj {
+    width: 170px;
+    left: 35px;
+}
+
+.uplatnica__element-_platitelj {
+    top: 42px;
+    height: 65px;
+}
+
+.uplatnica__element-_primatelj {
+    top: 152px;
+    height: 85px;
+}
+
+.uplatnica__element--numeric {
+    font-size: 17px;
+    letter-spacing: .235em;
+}
+
+.uplatnica__element--numeric--iznos-left {
+    top: 29px;
+    right: 282px;
+}
+.uplatnica__element--numeric--iban-left {
+    top: 114px;
+    right: 282px;
+}
+.uplatnica__element--numeric--model {
+    top: 147px;
+    left: 255px;
+}
+.uplatnica__element--numeric--poziv-na-broj {
+    top: 147px;
+    right: 281px;
+}
+.uplatnica__element--numeric--sifra-namjene {
+    top: 187px;
+    left: 226px;
+}
+.uplatnica__element--opis-placanja-left {
+    top: 172px;
+    left: 356px;
+    width: 264px;
+    height: 67px;
+    line-height: 1.31;
+}
+
+.uplatnica__element--numeric--iznos-right,
+.uplatnica__element--numeric--iban-right,
+.uplatnica__element--numeric--model-i-poziv-na-broj,
+.uplatnica__element--opis-placanja-right {
+    right: 32px;
+    letter-spacing: normal;
+}
+
+.uplatnica__element--numeric--iznos-right {
+    top: 29px;
+}
+.uplatnica__element--numeric--iban-right {
+    top: 114px;
+}
+.uplatnica__element--numeric--model-i-poziv-na-broj {
+    top: 147px;
+}
+.uplatnica__element--opis-placanja-right {
+    top: 186px;
+    width: 221px;
+    height: 51px;
+    line-height: 1;
+}
