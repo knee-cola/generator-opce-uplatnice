@@ -1,6 +1,50 @@
-input, select {
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+label {
+    font-size: .9em;
+}
+
+textarea, input, select {
     display: block;
-    margin-bottom: .7em;
+    margin-bottom: .2em;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.fieldset-brojke__namjena select {
+    width: 290px;
+/*    white-space: normal;
+    height: 4.3em; */
+}
+
+select {
+    height: 1.6em; /* visinu usklađujem sa visinom input-a */
+}
+
+fieldset {
+    display: inline-block;
+    height: 232px;
+    vertical-align: text-top;
+}
+
+.fieldset-brojke__racun,
+.fieldset-brojke__model {
+    margin-right: .4em;
+}
+
+.fieldset-brojke__iznos,
+.fieldset-brojke__racun,
+.fieldset-brojke__na-broj,
+.fieldset-brojke__model {
+    /* elemente prikazujem jedan do drugoga */
+    display: inline-block;
+}
+
+h2 {
+    font-size: 1.2em;
+    text-transform: uppercase;
+    margin: 0 0 .2em 0;
 }
 
 .uplatnica {
