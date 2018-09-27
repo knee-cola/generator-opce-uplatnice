@@ -2,7 +2,7 @@ class Uplatnica extends React.Component {
     render() {
         return(
         <div className="uplatnica">
-            <img src="/img/uplatnica.jpg"/>
+            <img src="./img/uplatnica.jpg"/>
             <div className="uplatnica__element uplatnica__element-_platitelj">
                 Marija Derežić
                 <br/>Oboj 16/1
