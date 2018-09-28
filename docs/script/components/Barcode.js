@@ -1,3 +1,5 @@
+import { FormatCurrency } from 'Format';
+
 class Barcode extends React.Component {
 
     constructor(props) {
@@ -23,7 +25,7 @@ class Barcode extends React.Component {
     getPaymentParams() {
         var paymentParams = new BarcodePayment.PaymentParams();
         
-        paymentParams.Iznos = this.props.iznos.replace('.',',');
+        paymentParams.Iznos =  FormatCurrency(this.props.iznos);
         paymentParams.ImePlatitelja = this.props.platitelj__ime;
         paymentParams.AdresaPlatitelja = this.props.platitelj__adresa;
         paymentParams.SjedistePlatitelja = (this.props.platitelj__postanskiBroj + ' ' + this.props.platitelj__gradMjesto).trim();

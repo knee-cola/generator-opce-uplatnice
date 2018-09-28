@@ -1,5 +1,5 @@
 import { Barcode } from 'Barcode';
-
+import { FormatCurrency } from 'Format';
 class Uplatnica extends React.Component {
     render() {
         return(
@@ -21,14 +21,14 @@ class Uplatnica extends React.Component {
                     <br/>{this.props.primatelj__adresa}
                     <br/>{this.props.primatelj__postanskiBroj} {this.props.primatelj__gradMjesto}
                 </div>
-                <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--iznos-left">{this.props.iznos.replace('.','')}</div>
+                <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--iznos-left">{FormatCurrency(this.props.iznos).replace(',','')}</div>
                 <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--iban-left">{this.props.primatelj__iban}</div>
                 <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--model">{this.props.primatelj__model}</div>
                 <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--poziv-na-broj">{this.props.primatelj__pozivNaBroj}</div>
                 <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--sifra-namjene">{this.props.sifra__namjene}</div>
                 <div className="uplatnica__element uplatnica__element--opis-placanja-left">{this.props.opis_placanja}</div>
 
-                <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--iznos-right">{this.props.iznos.replace('.',',')}</div>
+                <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--iznos-right">{FormatCurrency(this.props.iznos)}</div>
                 <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--iban-right">{this.props.primatelj__iban}</div>
                 <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--model-i-poziv-na-broj">{this.props.primatelj__model} {this.props.primatelj__pozivNaBroj}</div>
                 <div className="uplatnica__element uplatnica__element--opis-placanja-right">{this.props.opis_placanja}</div>
