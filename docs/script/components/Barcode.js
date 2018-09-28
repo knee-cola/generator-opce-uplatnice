@@ -12,6 +12,9 @@ class Barcode extends React.Component {
     componentDidUpdate() {
         this.updateCanvas();
 	}
+    shouldComponentUpdate(newProps, newState) {
+        return(JSON.stringify(newProps) !== JSON.stringify(this.props));
+	}
 
 	componentDidMount() {
         this.updateCanvas();
@@ -23,10 +26,10 @@ class Barcode extends React.Component {
         paymentParams.Iznos = this.props.iznos.replace('.',',');
         paymentParams.ImePlatitelja = this.props.platitelj__ime;
         paymentParams.AdresaPlatitelja = this.props.platitelj__adresa;
-        paymentParams.SjedistePlatitelja = this.props.platitelj__postanskiBroj + ' ' + this.props.platitelj__gradMjesto;
+        paymentParams.SjedistePlatitelja = (this.props.platitelj__postanskiBroj + ' ' + this.props.platitelj__gradMjesto).trim();
         paymentParams.Primatelj = this.props.primatelj__ime;
         paymentParams.AdresaPrimatelja = this.props.primatelj__adresa;
-        paymentParams.SjedistePrimatelja = this.props.primatelj__postanskiBroj + ' ' + this.props.primatelj__gradMjesto;
+        paymentParams.SjedistePrimatelja = (this.props.primatelj__postanskiBroj + ' ' + this.props.primatelj__gradMjesto).trim();
         paymentParams.IBAN = this.props.primatelj__iban;
         paymentParams.ModelPlacanja = this.props.primatelj__model;
         paymentParams.PozivNaBroj = this.props.primatelj__pozivNaBroj;
@@ -49,6 +52,9 @@ class Barcode extends React.Component {
 			this.showError('Pri generiranju 2D koda','došlo je do tehničke greške!');
 			return;
 		} 
+
+		this.props.onFormValidation(0);
+
 		
 		// Barcode generation sample copied from library sample
 		PDF417.init(textToEncode);
@@ -80,9 +86,10 @@ class Barcode extends React.Component {
 	}
 
 	handleValidation(paymentParams) {
-		var result = BarcodePayment.ValidatePaymentParams(paymentParams);
-		
-		// TODO: result is BarcodePayment.ValidationResult, check which validations failed and display appropriate messages
+		if(this.props.onFormValidation) {
+			const result = BarcodePayment.ValidatePaymentParams(paymentParams);
+			this.props.onFormValidation(result);
+		}
 	}
 
 	stringNotDefinedOrEmpty(str) {

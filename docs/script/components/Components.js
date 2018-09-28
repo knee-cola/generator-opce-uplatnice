@@ -36,8 +36,9 @@ class IntentCodes extends GenericSelect {
 
 class GenericInput extends React.Component {
     render() {
+        let className = (this.props.className ? this.props.className : '') + (this.props.invalid ? ' form-field-invalid' : '')
         return(
-        <div className={this.props.className}>
+        <div className={className}>
             <label>{ this.props.label }</label>
             <input id={this.props.id} type={this.type} value={this.props.value} onChange={this.props.onChange} />
             {this.props.children}

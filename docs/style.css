@@ -14,6 +14,14 @@ textarea, input, select {
 
 input {
     width: 13.5em;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ababab;
+}
+
+.form-field-invalid input {
+    border-color: red;
+    background-color: #ff000014;
 }
 
 .fieldset-brojke__racun input {
@@ -45,6 +53,7 @@ fieldset {
     vertical-align: text-top;
 }
 
+.fieldset-novi-nalog,
 .fieldset-load-dialog,
 .fieldset-save-dialog {
     height: auto;
@@ -54,6 +63,17 @@ fieldset {
     margin-bottom: .2em;
 }
 
+.fieldset-novi-nalog {
+    margin-top: .5em;
+    text-align: center;
+    border: none;
+}
+.fieldset-novi-nalog button {
+     font-size: 1.2em;
+     margin-left: .4em;
+}
+
+.fieldset-novi-nalog,
 .fieldset-load-dialog,
 .fieldset-save-dialog,
 .fieldset-platitelj {
@@ -136,6 +156,8 @@ fieldset {
     /* elemente prikazujem jedan do drugoga */
     display: inline-block;
 }
+
+
 
 h2 {
     font-size: 1.2em;
