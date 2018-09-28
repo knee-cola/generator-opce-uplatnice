@@ -35,7 +35,7 @@ fieldset {
 
 .fieldset-brojke__iznos,
 .fieldset-brojke__racun,
-.fieldset-brojke__na-broj,
+.fieldset-brojke__poziv-na-broj,
 .fieldset-brojke__model {
     /* elemente prikazujem jedan do drugoga */
     display: inline-block;
@@ -49,7 +49,8 @@ h2 {
 
 .uplatnica {
     position: relative;
-    display: inline-block;
+    display: block;
+    width: 906px;
 }
 .uplatnica__element {
     position: absolute;
