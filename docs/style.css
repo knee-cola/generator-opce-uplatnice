@@ -147,9 +147,11 @@ h2 {
 
 .uplatnica__disclaimer {
     color: red;
-    margin: 1em 0 .8em 2.1em;
+    margin: 1em 0 .4em 1.8em;
     font-size: .9em;
-    width: 860px;
+    width: 836px;
+    border: 1px solid red;
+    padding: .5em;
 }
 
 @media print {
