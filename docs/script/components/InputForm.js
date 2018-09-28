@@ -2,6 +2,7 @@ import { PaymentModels, IntentCodes, TextInput, NumericInput, TextAreaInput } fr
 import { Uplatnica } from 'Uplatnica';
 import { LoadDialog } from 'LoadDialog';
 import { SaveDialog } from 'SaveDialog';
+import { About } from 'About';
 
 const _defaultState = {
     nalog: {
@@ -107,6 +108,7 @@ class InputForm extends React.Component {
 
         return(
         <form>
+            <About />
             <LoadDialog onNalogLoad={this.handleNalogLoad} />
             <SaveDialog nalog={nalog} />
             <fieldset className="fieldset-platitelj">
@@ -125,7 +127,7 @@ class InputForm extends React.Component {
             </fieldset>
             <fieldset className="fieldset-brojke">
                 <TextInput id="primatelj__iban" label="IBAN / Račun primatelja:" className="fieldset-brojke__racun" onChange={this.handleInputChange} value={nalog.primatelj__iban} invalid={invalid.primatelj__iban}/>
-                <NumericInput id="iznos" label="Iznos:" className="fieldset-brojke__iznos" onChange={this.handleInputChange} value={nalog.iznos} invalid={invalid.iznos}/>
+                <TextInput id="iznos" label="Iznos:" className="fieldset-brojke__iznos" onChange={this.handleInputChange} value={nalog.iznos} invalid={invalid.iznos}/>
                 <br/>
                 <PaymentModels id="primatelj__model" className="fieldset-brojke__model" onChange={this.handleInputChange} value={nalog.primatelj__model} invalid={invalid.primatelj__model}/>
                 <TextInput id="primatelj__pozivNaBroj" label="Poziv na broj:" className="fieldset-brojke__poziv-na-broj" onChange={this.handleInputChange} value={nalog.primatelj__pozivNaBroj} invalid={invalid.primatelj__pozivNaBroj}/>

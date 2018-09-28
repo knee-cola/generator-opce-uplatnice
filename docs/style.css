@@ -53,6 +53,7 @@ fieldset {
     vertical-align: text-top;
 }
 
+.fieldset-about,
 .fieldset-novi-nalog,
 .fieldset-load-dialog,
 .fieldset-save-dialog {
@@ -61,6 +62,47 @@ fieldset {
     width: 710px;
     padding: .1em 1em;
     margin-bottom: .2em;
+}
+
+.fieldset-about {
+    margin-left: 1.7rem;
+    font-size: .9em;
+    height: 2.4em;
+    overflow: hidden;
+    width: 714px;
+}
+
+.fieldset-about--expanded {
+    height: auto;
+}
+.fieldset-about p {
+    margin: .7em 0;
+}
+
+.fieldset-about h1 {
+    margin-top: 0;
+    margin-bottom: 0.2em;
+    position: relative;
+    cursor: pointer;
+}
+.fieldset-about h1:after {
+    content: 'keyboard_arrow_down';
+ 
+    position: absolute;
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-size: 1.7em;
+    text-transform: none;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    left: 1em;
+    top: -.15em;
+    color: red;
+}
+
+.fieldset-about--expanded h1:after {
+    content: 'keyboard_arrow_up';
 }
 
 .fieldset-novi-nalog {
@@ -261,7 +303,7 @@ h2 {
 
 .uplatnica__disclaimer {
     color: red;
-    margin: 1em 0 .4em 1.8em;
+    margin: 0 0 .4em 1.8em;
     font-size: .9em;
     width: 836px;
     border: 1px solid red;

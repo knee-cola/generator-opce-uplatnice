@@ -2,7 +2,7 @@ const FormatCurrency = value => {
 
     if(value == "") { return(""); }
     
-    value = value.split('.');
+    value = value.split(',');
     
     let decimale = value[1];
 
