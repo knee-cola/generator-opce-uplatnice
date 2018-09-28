@@ -133,6 +133,14 @@ h2 {
     line-height: 1;
 }
 
+.uplatnica__barcode {
+    position: absolute;
+    left: 34px;
+    top: 247px;
+    height: 100px;
+    width: 238px;
+}
+
 @media print {
     fieldset {
         background-color: blue;

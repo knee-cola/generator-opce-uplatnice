@@ -1,3 +1,5 @@
+import { Barcode } from 'Barcode';
+
 class Uplatnica extends React.Component {
     render() {
         return(
@@ -24,7 +26,7 @@ class Uplatnica extends React.Component {
             <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--iban-right">{this.props.primatelj__iban}</div>
             <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--model-i-poziv-na-broj">{this.props.primatelj__model} {this.props.primatelj__pozivNaBroj}</div>
             <div className="uplatnica__element uplatnica__element--opis-placanja-right">{this.props.opis_placanja}</div>
-            
+            <Barcode {...this.props} />
         </div>
         );
     }
