@@ -12,6 +12,10 @@ class Barcode extends React.Component {
 
     componentDidUpdate() {
         this.updateCanvas();
+	}
+
+	componentDidMount() {
+        this.updateCanvas();
     }
 
     getPaymentParams() {
