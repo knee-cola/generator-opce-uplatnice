@@ -4,26 +4,26 @@ class Uplatnica extends React.Component {
         <div className="uplatnica">
             <img src="./img/uplatnica.jpg"/>
             <div className="uplatnica__element uplatnica__element-_platitelj">
-                Marija Derežić
-                <br/>Oboj 16/1
-                <br/>10.000 Zagreb
+                {this.props.platitelj__ime}
+                <br/>{this.props.platitelj__adresa}
+                <br/>{this.props.platitelj__postanskiBroj} {this.props.platitelj__gradMjesto}
             </div>
             <div className="uplatnica__element uplatnica__element-_primatelj">
-                Geosfera d.o.o.
-                <br/>Nikole Cara 4
-                <br/>51.0000 Rijeka
+                {this.props.primatelj__ime}
+                <br/>{this.props.primatelj__adresa}
+                <br/>{this.props.primatelj__postanskiBroj} {this.props.primatelj__gradMjesto}
             </div>
-            <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--iznos-left">625000</div>
-            <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--iban-left">HR8424840081103381985</div>
-            <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--model">00</div>
-            <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--poziv-na-broj">105-1-1</div>
-            <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--sifra-namjene">ABCD</div>
-            <div className="uplatnica__element uplatnica__element--opis-placanja-left">Uplata po računu 105-1-1</div>
+            <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--iznos-left">{this.props.iznos.replace('.','')}</div>
+            <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--iban-left">{this.props.primatelj__iban}</div>
+            <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--model">{this.props.primatelj__model}</div>
+            <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--poziv-na-broj">{this.props.primatelj__pozivNaBroj}</div>
+            <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--sifra-namjene">{this.props.sifra__namjene}</div>
+            <div className="uplatnica__element uplatnica__element--opis-placanja-left">{this.props.opis_placanja}</div>
 
-            <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--iznos-right">6250,00</div>
-            <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--iban-right">HR8424840081103381985</div>
-            <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--model-i-poziv-na-broj">00 105-1-1</div>
-            <div className="uplatnica__element uplatnica__element--opis-placanja-right">Uplata po računu 105-1-1</div>
+            <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--iznos-right">{this.props.iznos.replace('.',',')}</div>
+            <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--iban-right">{this.props.primatelj__iban}</div>
+            <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--model-i-poziv-na-broj">{this.props.primatelj__model} {this.props.primatelj__pozivNaBroj}</div>
+            <div className="uplatnica__element uplatnica__element--opis-placanja-right">{this.props.opis_placanja}</div>
             
         </div>
         );
