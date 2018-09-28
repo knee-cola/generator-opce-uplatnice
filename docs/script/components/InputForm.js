@@ -132,11 +132,11 @@ class InputForm extends React.Component {
                 <IntentCodes id="sifra__namjene" className="fieldset-brojke__namjena"  onChange={this.handleInputChange} value={nalog.sifra__namjene} invalid={invalid.sifra__namjene}/>
                 <TextAreaInput id="opis_placanja" label="Opis plaćanja:" onChange={this.handleInputChange} value={nalog.opis_placanja} invalid={invalid.opis_placanja}/>
             </fieldset>
+            <Uplatnica {...nalog} onFormValidation={this.handleFormValidation} />
             <fieldset className="fieldset-novi-nalog">
                 <button name="novi-nalog" onClick={this.handleOnClick}>NOVI NALOG</button>
                 <button name="print" onClick={this.handleOnClick}>ISPIS NALOGA</button>
             </fieldset>
-            <Uplatnica {...nalog} onFormValidation={this.handleFormValidation} />
         </form>
         );
     }
