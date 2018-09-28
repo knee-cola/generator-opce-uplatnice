@@ -64,7 +64,7 @@ fieldset {
 }
 
 .fieldset-novi-nalog {
-    margin-top: 0;
+    margin-top: 0.5em;
     text-align: center;
     border: none;
 }
