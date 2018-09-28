@@ -4,7 +4,11 @@ class Uplatnica extends React.Component {
     render() {
         return(
         <div>
-            <p className="uplatnica__disclaimer"><strong>UPOZORENJE:</strong> kao autor dijelova ove web aplikacije NE jamčim za ispravnost generiranog 2D koda. OBAVEZNO prije korištenje ove uplatnice programom za skeniranje 2D koda provjerite jesu li informacije sadržane u kodu ispravne. Činom upotrebe ovog generatora  preuzimate punu materijalnu i pravnu odgovornost za načinjenu uplatnicu i posljedice koje njezino korištenje može imati!</p>
+            <div className="uplatnica__disclaimer">
+                <p><strong>UPOZORENJE:</strong> kao autor dijelova ove web aplikacije NE jamčim za ispravnost generiranog 2D koda.</p>
+                <p>OBAVEZNO prije korištenje ove uplatnice programom za skeniranje 2D koda provjerite jesu li informacije sadržane u kodu ispravne.</p>
+                <p>Činom upotrebe ovog generatora preuzimate punu materijalnu i pravnu odgovornost za posljedice koje korištenje generirane uplatnice može imati!</p>
+            </div>
             <div className="uplatnica">
                 <img src="./img/uplatnica.jpg"/>
                 <div className="uplatnica__element uplatnica__element-_platitelj">

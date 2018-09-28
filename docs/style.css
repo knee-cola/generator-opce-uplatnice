@@ -12,6 +12,23 @@ textarea, input, select {
     font-family: 'Roboto Mono', monospace;
 }
 
+input {
+    width: 13.5em;
+}
+
+.fieldset-brojke__racun input {
+    width: 12.7em;
+}
+
+.fieldset-brojke__iznos input {
+    text-align: right;
+    width: 8em;
+}
+
+.fieldset-brojke__poziv-na-broj input {
+    width: 18em;
+}
+
 .fieldset-brojke__namjena select {
     width: 290px;
 /*    white-space: normal;
@@ -28,8 +45,83 @@ fieldset {
     vertical-align: text-top;
 }
 
+.fieldset-load-dialog,
+.fieldset-save-dialog {
+    height: auto;
+    display: block; /* zauzmi cijeli redak */
+    width: 720px;
+    padding: .1em 1em;
+    margin-bottom: .2em;
+}
+
+.fieldset-load-dialog,
+.fieldset-save-dialog,
 .fieldset-platitelj {
     margin-left: 1.7em;
+}
+
+
+.fieldset-save-dialog__predlozak-naziv {
+    display: inline-block;
+}
+
+.fieldset-load-dialog select {
+    width: 490px;
+    height: 1.7em;
+}
+
+.fieldset-load-dialog button {
+    margin-right: .3em;
+}
+
+.fieldset-load-dialog select,
+.fieldset-save-dialog input {
+    display: inline-block;
+    margin: .3em;
+}
+
+.fieldset-save-dialog div {
+    display: inline-block;
+}
+
+.fieldset-save-dialog__hint {
+    font-size: 0.8em;
+    margin-left: 4em;
+    position: relative;
+}
+.fieldset-save-dialog__hint::before {
+    content: "contact_support";
+    position: absolute;
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-size: 1.7em;
+    text-transform: none;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    left: -1.1em;
+    top: -.15em;
+    color: #2196F3;
+}
+
+.fieldset-validation-msg {
+    display: block;
+    margin: .3rem -1rem -.1rem -1rem;
+    font-size: .9em;
+    padding: .1em 1em;
+}
+.fieldset-validation-msg-none {
+    display: none;
+}
+
+.fieldset-validation-msg-error {
+    background-color: #ff00003b;
+    border-top: 1px solid red;
+}
+
+.fieldset-validation-msg-ok {
+    border-top: 1px solid green;
+    background-color: #0080003d;
 }
 
 .fieldset-brojke__racun,
@@ -151,12 +243,16 @@ h2 {
     font-size: .9em;
     width: 836px;
     border: 1px solid red;
-    padding: .5em;
+    padding: 0 .5em;
+}
+
+.popis-predlozaka,
+.predlozak-naziv {
+    display: inline-block;
 }
 
 @media print {
     fieldset {
-        background-color: blue;
         display: none !important;
     }
 }

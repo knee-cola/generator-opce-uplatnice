@@ -1,4 +1,3 @@
-
 class Barcode extends React.Component {
 
     constructor(props) {

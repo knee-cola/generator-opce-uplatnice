@@ -4,7 +4,8 @@ class GenericSelect extends React.Component {
         return(
         <div className={this.props.className}>
             <label>{this.label}</label>
-            <select id={this.props.id} onChange={this.props.onChange} value={this.props.value}><option key="blank-option"></option>{ this.optionFactory() }</select>
+            <select id={this.props.id} onChange={this.props.onChange} value={this.props.value}>{ this.optionFactory() }</select>
+            {this.props.children}
         </div>
         );
     }
@@ -15,7 +16,9 @@ class PaymentModels extends GenericSelect {
         this.label = "Model";
     }
     optionFactory() {
-        return(BarcodePayment.PaymentModels.map(el => <option key={el.model} value={el.model}>{el.model}</option>));
+        let models = BarcodePayment.PaymentModels.map(el => <option key={el.model} value={el.model}>{el.model}</option>);
+        models.unshift(<option key="" value=""></option>);
+        return(models);
     }
 }
 
@@ -25,7 +28,9 @@ class IntentCodes extends GenericSelect {
         this.label = "Šifra namjene";
     }
     optionFactory() {
-        return(BarcodePayment.IntentCodes.map(el => <option key={el.code} value={el.code}>{el.code+" -  "+el.title}</option>));
+        let codes = BarcodePayment.IntentCodes.map(el => <option key={el.code} value={el.code}>{el.code+" -  "+el.title}</option>);
+        codes.unshift(<option key="" value=""></option>);
+        return(codes);
     }
 }
 
@@ -35,6 +40,7 @@ class GenericInput extends React.Component {
         <div className={this.props.className}>
             <label>{ this.props.label }</label>
             <input id={this.props.id} type={this.type} value={this.props.value} onChange={this.props.onChange} />
+            {this.props.children}
         </div>
         );
     }
@@ -57,9 +63,10 @@ class TextAreaInput extends React.Component {
         <div className={this.props.className}>
             <label>{ this.props.label }</label>
             <textarea id={this.props.id} cols="34" rows="4" onChange={this.props.onChange} value={this.props.value} />
+            {this.props.children}
         </div>
         );
     }
 }
 
-export { PaymentModels, IntentCodes, TextInput, NumericInput, TextAreaInput }
+export { GenericSelect, PaymentModels, IntentCodes, TextInput, NumericInput, TextAreaInput }

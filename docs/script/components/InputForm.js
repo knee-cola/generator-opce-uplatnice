@@ -1,5 +1,7 @@
 import { PaymentModels, IntentCodes, TextInput, NumericInput, TextAreaInput } from 'Components';
 import { Uplatnica } from 'Uplatnica';
+import { LoadDialog } from 'LoadDialog';
+import { SaveDialog } from 'SaveDialog';
 
 class InputForm extends React.Component {
 
@@ -40,6 +42,7 @@ class InputForm extends React.Component {
 //        };
 //    
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleNalogLoad = this.handleNalogLoad.bind(this);
       }
 
       handleInputChange(event) {
@@ -49,6 +52,10 @@ class InputForm extends React.Component {
           [target.id]: target.value
         });
       }
+
+      handleNalogLoad(nalog) {
+        this.setState(nalog);
+      }
     
     
     render() {
@@ -56,6 +63,8 @@ class InputForm extends React.Component {
 
         return(
         <form>
+            <LoadDialog onNalogLoad={this.handleNalogLoad} />
+            <SaveDialog nalog={state} />
             <fieldset className="fieldset-platitelj">
                 <h2>Platitelj</h2>
                 <TextInput id="platitelj__ime" label="Ime i prezime / Naziv:" onChange={this.handleInputChange} value={this.state.platitelj__ime} />
