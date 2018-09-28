@@ -58,7 +58,7 @@ fieldset {
 .fieldset-save-dialog {
     height: auto;
     display: block; /* zauzmi cijeli redak */
-    width: 720px;
+    width: 710px;
     padding: .1em 1em;
     margin-bottom: .2em;
 }
@@ -86,7 +86,7 @@ fieldset {
 }
 
 .fieldset-load-dialog select {
-    width: 490px;
+    width: 484px;
     height: 1.7em;
 }
 
