@@ -1,7 +1,18 @@
 import { Barcode } from 'Barcode';
 import { FormatCurrency } from 'Format';
 class Uplatnica extends React.Component {
+
+    // pretvara new line u 
+    nl2br(text) {
+        return(text.split('\n').map((item, key) => {
+            return <span key={key}>{item}<br/></span>
+          }))
+    }
+
     render() {
+
+        const opisPlacanja = this.nl2br(this.props.opis_placanja);
+
         return(
         <div>
             <div className="uplatnica">
@@ -21,12 +32,12 @@ class Uplatnica extends React.Component {
                 <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--model">{this.props.primatelj__model}</div>
                 <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--poziv-na-broj">{this.props.primatelj__pozivNaBroj}</div>
                 <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--sifra-namjene">{this.props.sifra__namjene}</div>
-                <div className="uplatnica__element uplatnica__element--opis-placanja-left">{this.props.opis_placanja}</div>
+                <div className="uplatnica__element uplatnica__element--opis-placanja-left">{opisPlacanja}</div>
 
                 <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--iznos-right">{FormatCurrency(this.props.iznos)}</div>
                 <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--iban-right">{this.props.primatelj__iban}</div>
                 <div className="uplatnica__element uplatnica__element--numeric uplatnica__element--numeric--model-i-poziv-na-broj">{this.props.primatelj__model} {this.props.primatelj__pozivNaBroj}</div>
-                <div className="uplatnica__element uplatnica__element--opis-placanja-right">{this.props.opis_placanja}</div>
+                <div className="uplatnica__element uplatnica__element--opis-placanja-right">{opisPlacanja}</div>
                 <Barcode {...this.props} />
             </div>
             <div className="uplatnica__disclaimer">

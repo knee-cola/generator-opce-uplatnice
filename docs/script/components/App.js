@@ -80,7 +80,7 @@ class App extends React.Component {
         paymentParams.PozivNaBroj = nalog.primatelj__pozivNaBroj;
         paymentParams.SifraNamjene = nalog.sifra__namjene;
         // opis plaćanja automatski skraćujem na dopušteni broj znakova
-        paymentParams.OpisPlacanja = nalog.opis_placanja.substr(0, BarcodePayment.MaxLengths.Description);
+        paymentParams.OpisPlacanja = nalog.opis_placanja.substr(0, BarcodePayment.MaxLengths.Description).replace(/\n/g," ");
         
         return paymentParams;
     }
