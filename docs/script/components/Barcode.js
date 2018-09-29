@@ -1,15 +1,4 @@
-import { FormatCurrency } from 'Format';
-
 class Barcode extends React.Component {
-
-    constructor(props) {
-        super(props);
-
-        BarcodePayment.Init({
-            ValidateIBAN: false, // Validation is not yet implemented
-            ValidateModelPozivNaBroj: true // Validation is not yet implemented
-        });
-    }
 
     componentDidUpdate() {
         this.updateCanvas();
@@ -22,44 +11,20 @@ class Barcode extends React.Component {
         this.updateCanvas();
     }
 
-    getPaymentParams() {
-        var paymentParams = new BarcodePayment.PaymentParams();
-        
-        paymentParams.Iznos =  FormatCurrency(this.props.iznos);
-        paymentParams.ImePlatitelja = this.props.platitelj__ime;
-        paymentParams.AdresaPlatitelja = this.props.platitelj__adresa;
-        paymentParams.SjedistePlatitelja = (this.props.platitelj__postanskiBroj + ' ' + this.props.platitelj__gradMjesto).trim();
-        paymentParams.Primatelj = this.props.primatelj__ime;
-        paymentParams.AdresaPrimatelja = this.props.primatelj__adresa;
-        paymentParams.SjedistePrimatelja = (this.props.primatelj__postanskiBroj + ' ' + this.props.primatelj__gradMjesto).trim();
-        paymentParams.IBAN = this.props.primatelj__iban;
-        paymentParams.ModelPlacanja = this.props.primatelj__model;
-        paymentParams.PozivNaBroj = this.props.primatelj__pozivNaBroj;
-        paymentParams.SifraNamjene = this.props.sifra__namjene;
-        paymentParams.OpisPlacanja = this.props.opis_placanja;
-        
-        return paymentParams
-    }
-
     updateCanvas() {
-		var paymentParams = this.getPaymentParams();
-		var textToEncode = BarcodePayment.GetEncodedText(paymentParams);
-		
-		if (textToEncode == BarcodePayment.ResultCode.InvalidContent) {
-			this.handleValidation(paymentParams);
+
+		const encodedText = this.props.encodedText;
+
+		if (encodedText == BarcodePayment.ResultCode.InvalidContent) {
 			this.showError('Sadržaj forme nije ispravan!','2D kod ne može biti generiran!');
 			return;
-		} else if (textToEncode == BarcodePayment.ResultCode.InvalidObject || this.stringNotDefinedOrEmpty(textToEncode)) {
-			alert();
+		} else if (encodedText == BarcodePayment.ResultCode.InvalidObject || this.stringNotDefinedOrEmpty(encodedText)) {
 			this.showError('Pri generiranju 2D koda','došlo je do tehničke greške!');
 			return;
 		} 
 
-		this.props.onFormValidation(0);
-
-		
 		// Barcode generation sample copied from library sample
-		PDF417.init(textToEncode);
+		PDF417.init(this.props.encodedText);
 		var barcode = PDF417.getBarcodeArray();
 
 		// block sizes (width and height) in pixels
@@ -87,16 +52,9 @@ class Barcode extends React.Component {
 		}
 	}
 
-	handleValidation(paymentParams) {
-		if(this.props.onFormValidation) {
-			const result = BarcodePayment.ValidatePaymentParams(paymentParams);
-			this.props.onFormValidation(result);
-		}
-	}
-
-	stringNotDefinedOrEmpty(str) {
-		return str == undefined || str == null || str.length == 0;
-	}
+    stringNotDefinedOrEmpty(str) {
+        return str == undefined || str == null || str.length == 0;
+    }
 
 	showError(errorText1,errorText2) {
 		const canvas = this.refs.canvas;
