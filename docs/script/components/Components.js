@@ -48,8 +48,10 @@ class TextInput extends React.Component {
 }
 class TextAreaInput extends React.Component {
     render() {
+        let className = (this.props.className ? this.props.className : '') + (this.props.invalid ? ' form-field-invalid' : '')
+
         return(
-        <div className={this.props.className}>
+        <div className={className}>
             <label>{ this.props.label }</label>
             <textarea id={this.props.id} cols="34" rows="4" onChange={this.props.onChange} value={this.props.value} />
             {this.props.children}

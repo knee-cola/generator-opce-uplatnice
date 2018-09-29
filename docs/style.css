@@ -19,7 +19,8 @@ input {
     border-color: #ababab;
 }
 
-.form-field-invalid input {
+.form-field-invalid input,
+.form-field-invalid textarea {
     border-color: red;
     background-color: #ff000014;
 }
