@@ -79,7 +79,8 @@ class App extends React.Component {
         paymentParams.ModelPlacanja = nalog.primatelj__model;
         paymentParams.PozivNaBroj = nalog.primatelj__pozivNaBroj;
         paymentParams.SifraNamjene = nalog.sifra__namjene;
-        paymentParams.OpisPlacanja = nalog.opis_placanja;
+        // opis plaćanja automatski skraćujem na dopušteni broj znakova
+        paymentParams.OpisPlacanja = nalog.opis_placanja.substr(0, BarcodePayment.MaxLengths.Description);
         
         return paymentParams;
     }
