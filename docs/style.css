@@ -255,8 +255,9 @@ h2 {
     left: 255px;
 }
 .uplatnica__element--numeric--poziv-na-broj {
-    top: 147px;
+    top: 150px;
     right: 281px;
+    font-size: .9em;
 }
 .uplatnica__element--numeric--sifra-namjene {
     top: 187px;
@@ -285,7 +286,8 @@ h2 {
     top: 114px;
 }
 .uplatnica__element--numeric--model-i-poziv-na-broj {
-    top: 147px;
+    top: 152px;
+    font-size: 0.9em;
 }
 .uplatnica__element--opis-placanja-right {
     top: 186px;
