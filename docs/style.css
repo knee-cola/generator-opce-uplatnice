@@ -333,4 +333,9 @@ h2 {
     .form-field-invalid::placeholder {
         background: none;
     }
+
+    /* kod ispisa placeholder tekst se ne prikazuje */
+    .form-field::placeholder {
+        color: rgba(0,0,0,0);
+    }
 }
