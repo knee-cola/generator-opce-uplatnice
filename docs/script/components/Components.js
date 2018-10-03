@@ -1,13 +1,12 @@
 
 class GenericSelect extends React.Component {
     render() {
+        let className = "form-field " + this.props.className;
         return(
-        <div className={this.props.className}>
-            <label>{this.label}</label>
-            <select id={this.props.id} onChange={this.props.onChange} value={this.props.value}>{ this.optionFactory() }</select>
-            {this.props.children}
-        </div>
-        );
+            <div>
+                <select className={className} id={this.props.id} onChange={this.props.onChange} value={this.props.value} placeholder={this.label}>{ this.optionFactory() }</select>
+                {this.props.children}
+            </div>);
     }
 }
 class PaymentModels extends GenericSelect {
@@ -16,7 +15,12 @@ class PaymentModels extends GenericSelect {
         this.label = "Model";
     }
     optionFactory() {
-        let models = BarcodePayment.PaymentModels.map(el => <option key={el.model} value={el.model}>{el.model}</option>);
+        
+        let models = BarcodePayment.PaymentModels.map(el => 
+        {
+            let modelCode = "HR"+el.model;
+            return(<option key={modelCode} value={modelCode}>{modelCode}</option>);
+        });
         models.unshift(<option key="" value=""></option>);
         return(models);
     }
@@ -36,26 +40,20 @@ class IntentCodes extends GenericSelect {
 
 class TextInput extends React.Component {
     render() {
-        let className = (this.props.className ? this.props.className : '') + (this.props.invalid ? ' form-field-invalid' : '')
-        return(
-        <div className={className}>
-            <label>{ this.props.label }</label>
-            <input id={this.props.id} type="text" value={this.props.value} onChange={this.props.onChange} />
+        let className = "form-field " + (this.props.className ? this.props.className : '') + (this.props.invalid ? ' form-field-invalid' : '')
+
+        return(<div>
+            <input id={this.props.id} className={className} type="text" value={this.props.value} onChange={this.props.onChange} placeholder={this.props.label} maxLength={this.props.maxLength} autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false" />
             {this.props.children}
-        </div>
-        );
+        </div>);
     }
 }
 class TextAreaInput extends React.Component {
     render() {
-        let className = (this.props.className ? this.props.className : '') + (this.props.invalid ? ' form-field-invalid' : '')
+        let className = "form-field " + (this.props.className ? this.props.className : '') + (this.props.invalid ? ' form-field-invalid' : '')
 
         return(
-        <div className={className}>
-            <label>{ this.props.label }</label>
-            <textarea id={this.props.id} cols="34" rows="4" onChange={this.props.onChange} value={this.props.value} />
-            {this.props.children}
-        </div>
+            <textarea className={className} id={this.props.id} cols="33" rows="4" onChange={this.props.onChange} value={this.props.value} placeholder={this.props.label} />
         );
     }
 }

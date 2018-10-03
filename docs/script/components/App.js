@@ -1,6 +1,7 @@
 import { Uplatnica } from 'Uplatnica';
 import { LoadDialog } from 'LoadDialog';
 import { SaveDialog } from 'SaveDialog';
+import { Disclaimer } from 'Disclaimer';
 import { About } from 'About';
 import { Forma } from 'Forma';
 import { FormatCurrency } from 'Format';
@@ -115,13 +116,15 @@ class App extends React.Component {
               validation = this.validateParams(paymentParams),
               encodedText = BarcodePayment.GetEncodedText(paymentParams);
 
+        //             <Uplatnica {...nalog} encodedText={encodedText} />
+
         return(
         <div>
             <About />
             <LoadDialog onNalogLoad={this.handleNalogLoad} />
             <SaveDialog nalog={nalog} />
             <Forma onAction={this.handleFormAction} onUserInput={this.handleUserInput} nalog={nalog} validation={validation} />
-            <Uplatnica {...nalog} encodedText={encodedText} />
+            <Disclaimer />
         </div>
         );
     }

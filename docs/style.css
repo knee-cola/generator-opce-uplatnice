@@ -2,46 +2,30 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-label {
-    font-size: .9em;
-}
-
-textarea, input, select {
+.uplatnica {
+    position: relative;
     display: block;
-    margin-bottom: .2em;
+    width: 906px;
+}
+
+.uplatnica .form-field {
+    position: absolute;
     font-family: 'Roboto Mono', monospace;
+    outline: none;
+    background: none;
+    border: 1px solid rgba(0,0,0,0); /* prema potrebi mogu promjeniti boju bordera */
 }
 
-input {
-    width: 13.5em;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #ababab;
+.uplatnica .form-field:focus {
+    border-color: #0000008a;
+    background: white;
+    box-shadow: 1px 1px 10px #00000085;
 }
 
-.form-field-invalid input,
-.form-field-invalid textarea {
-    border-color: red;
-    background-color: #ff000014;
-}
-
-.fieldset-brojke__racun input {
-    width: 12.7em;
-}
-
-.fieldset-brojke__iznos input {
-    text-align: right;
-    width: 8em;
-}
-
-.fieldset-brojke__poziv-na-broj input {
-    width: 18em;
-}
-
-.fieldset-brojke__namjena select {
-    width: 290px;
-/*    white-space: normal;
-    height: 4.3em; */
+.form-field-invalid,
+.form-field-invalid::placeholder {
+    background: yellow;
+    border-color: #0000008a;
 }
 
 select {
@@ -49,9 +33,133 @@ select {
 }
 
 fieldset {
-    display: inline-block;
-    height: 232px;
-    vertical-align: text-top;
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+.fieldset-platitelj,
+.fieldset-primatelj {
+    position: absolute;
+    overflow: hidden;
+    width: 178px;
+    left: 29px;
+    overflow: hidden;
+}
+
+.fieldset-platitelj {
+    top: 42px;
+    height: 68px;
+}
+
+.fieldset-primatelj {
+    top: 152px;
+    height: 88px;
+}
+
+.fieldset-platitelj .form-field,
+.fieldset-primatelj .form-field {
+    position: static;
+    width: 100%;
+    display: block;
+}
+
+.form-field--iban {
+    font-size: 17px;
+    letter-spacing: .235em;
+    width: 297px;
+    height: 17px;
+    top: 115px;
+    left: 324px;
+    padding-left: 1px; /* centriram sadržaj u ćelijama */
+}
+
+.form-field--iznos {
+    top: 30px;
+    left: 409px;
+    width: 215px;
+    height: 17px;
+    text-align: right;
+    font-size: 17px;
+    letter-spacing: .235em;
+}
+
+.form-field--opis {
+    top: 172px;
+    left: 352px;
+    width: 266px;
+    height: 63px;
+    line-height: 1.31;
+    overflow: hidden;
+    resize: none;
+}
+
+.form-field--sifra-namjene,
+.form-field--model {
+    top: 146px;
+    left: 222px;
+    width: 76px;
+    height: 25px;
+    font-size: 17px;
+    letter-spacing: .235em;
+    /* skrivam strelicu */
+    /* for Firefox */
+    -moz-appearance: none;
+    /* for Chrome */
+    -webkit-appearance: none;
+    padding-left: 4px; /* centriram slova u ćelijama*/
+}
+
+.form-field--sifra-namjene {
+    top: 185px;
+    left: 221px;
+}
+
+.form-field--poziv-na-broj {
+    top: 148px;
+    left: 309px;
+    font-size: .9em;
+    height: 18px;
+    width: 313px;
+    padding-left: 2px;
+}
+
+/********************/
+
+.potvrda-field {
+    position: absolute;
+    left: 650px;
+    display: block;
+    height: 19px;
+    width: 223px;
+    font-family: 'Roboto Mono', monospace;
+    text-align: right;
+    font-size: 0.9em;
+}
+
+.potvrda-field--iznos {
+    top: 31px;
+    font-size: 1em;
+}
+.potvrda-field--iban {
+    top: 118px;
+}
+.potvrda-field--model-i-poziv-na-broj {
+    top: 152px;
+}
+.potvrda-field--opis-placanja {
+    top: 183px;
+    height: 56px;
+    text-align: left;
+    left: 653px;
+}
+
+/*------------------*/
+
+.fieldset-potvrda,
+.fieldset-brojke {
+    /* sadržani elementi su absolutno pozicionirani, pa ukidam visinu, kako stvar ne bi smetala u layout-u */
+    height: 0;
 }
 
 .fieldset-about,
@@ -60,9 +168,10 @@ fieldset {
 .fieldset-save-dialog {
     height: auto;
     display: block; /* zauzmi cijeli redak */
-    width: 710px;
+    width: 820px;
     padding: .1em 1em;
     margin-bottom: .2em;
+    border: 2px solid #f26437;
 }
 
 .fieldset-about {
@@ -70,12 +179,13 @@ fieldset {
     font-size: .9em;
     height: 2.4em;
     overflow: hidden;
-    width: 714px;
+    width: 820px;
 }
 
 .fieldset-about--expanded {
     height: auto;
 }
+
 .fieldset-about p {
     margin: .7em 0;
 }
@@ -86,6 +196,7 @@ fieldset {
     position: relative;
     cursor: pointer;
 }
+
 .fieldset-about h1:after {
     content: 'keyboard_arrow_down';
  
@@ -97,7 +208,7 @@ fieldset {
     direction: ltr;
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
-    left: 1em;
+    left: 3.2em;
     top: -.15em;
     color: red;
 }
@@ -107,7 +218,6 @@ fieldset {
 }
 
 .fieldset-novi-nalog {
-    margin-top: 0.5em;
     text-align: center;
     border: none;
 }
@@ -118,8 +228,7 @@ fieldset {
 
 .fieldset-novi-nalog,
 .fieldset-load-dialog,
-.fieldset-save-dialog,
-.fieldset-platitelj {
+.fieldset-save-dialog {
     margin-left: 1.7em;
 }
 
@@ -187,20 +296,6 @@ fieldset {
     background-color: #0080003d;
 }
 
-.fieldset-brojke__racun,
-.fieldset-brojke__model {
-    margin-right: .4em;
-}
-
-.fieldset-brojke__iznos,
-.fieldset-brojke__racun,
-.fieldset-brojke__poziv-na-broj,
-.fieldset-brojke__model {
-    /* elemente prikazujem jedan do drugoga */
-    display: inline-block;
-}
-
-
 
 h2 {
     font-size: 1.2em;
@@ -208,118 +303,33 @@ h2 {
     margin: 0 0 .2em 0;
 }
 
-.uplatnica {
-    position: relative;
-    display: block;
-    width: 906px;
-}
-.uplatnica__element {
-    position: absolute;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 13px;
-    overflow: hidden;
-    white-space: normal;
-}
-
-.uplatnica__element-_primatelj,
-.uplatnica__element-_platitelj {
-    width: 170px;
-    left: 35px;
-}
-
-.uplatnica__element-_platitelj {
-    top: 42px;
-    height: 65px;
-}
-
-.uplatnica__element-_primatelj {
-    top: 152px;
-    height: 85px;
-}
-
-.uplatnica__element--numeric {
-    font-size: 17px;
-    letter-spacing: .235em;
-}
-
-.uplatnica__element--numeric--iznos-left {
-    top: 29px;
-    right: 282px;
-}
-.uplatnica__element--numeric--iban-left {
-    top: 114px;
-    right: 282px;
-}
-.uplatnica__element--numeric--model {
-    top: 147px;
-    left: 255px;
-}
-.uplatnica__element--numeric--poziv-na-broj {
-    top: 150px;
-    right: 281px;
-    font-size: .9em;
-}
-.uplatnica__element--numeric--sifra-namjene {
-    top: 187px;
-    left: 226px;
-}
-.uplatnica__element--opis-placanja-left {
-    top: 172px;
-    left: 356px;
-    width: 264px;
-    height: 67px;
-    line-height: 1.31;
-}
-
-.uplatnica__element--numeric--iznos-right,
-.uplatnica__element--numeric--iban-right,
-.uplatnica__element--numeric--model-i-poziv-na-broj,
-.uplatnica__element--opis-placanja-right {
-    right: 32px;
-    letter-spacing: normal;
-}
-
-.uplatnica__element--numeric--iznos-right {
-    top: 29px;
-}
-.uplatnica__element--numeric--iban-right {
-    top: 114px;
-}
-.uplatnica__element--numeric--model-i-poziv-na-broj {
-    top: 152px;
-    font-size: 0.9em;
-}
-.uplatnica__element--opis-placanja-right {
-    top: 186px;
-    width: 221px;
-    height: 51px;
-    line-height: 1;
-}
-
-.uplatnica__barcode {
-    position: absolute;
-    left: 32px;
-    top: 247px;
-    height: 100px;
-    width: 238px;
-}
-
-.uplatnica__disclaimer {
-    color: red;
-    margin: 0 0 .4em 1.8em;
-    font-size: .9em;
-    width: 836px;
-    border: 1px solid red;
-    padding: 0 .5em;
-}
-
 .popis-predlozaka,
 .predlozak-naziv {
     display: inline-block;
 }
 
+.uplatnica__disclaimer {
+    color: #f26437;
+    margin: 0 0 .4em 1.8em;
+    font-size: .9em;
+    width: 836px;
+    border: 2px solid #f26437;
+    padding: 0 .5em;
+    margin-top: 1em;
+}
+
 @media print {
-    fieldset {
+    /* skrivam suvišan sadržaj */
+    .fieldset-novi-nalog,
+    .fieldset-save-dialog,
+    .fieldset-load-dialog,
+    .fieldset-about {
         display: none !important;
+    }
+
+    .form-field,
+    .form-field-invalid,
+    .form-field-invalid::placeholder {
+        background: none;
     }
 }
