@@ -177,7 +177,7 @@ fieldset {
 .fieldset-about {
     margin-left: 1.7rem;
     font-size: .9em;
-    height: 2.4em;
+    height: 2em;
     overflow: hidden;
     width: 820px;
 }
@@ -191,8 +191,9 @@ fieldset {
 }
 
 .fieldset-about h1 {
+    font-size: 1.6em;
     margin-top: 0;
-    margin-bottom: 0.2em;
+    margin-bottom: 0.7em;
     position: relative;
     cursor: pointer;
 }
@@ -210,7 +211,7 @@ fieldset {
     -webkit-font-smoothing: antialiased;
     left: 3.2em;
     top: -.15em;
-    color: red;
+    color: #f26437;
 }
 
 .fieldset-about--expanded h1:after {
