@@ -22,8 +22,8 @@ body {
     box-shadow: 1px 1px 10px #00000085;
 }
 
-.form-field-invalid,
-.form-field-invalid::placeholder {
+.uplatnica .form-field-invalid,
+.uplatnica .form-field-invalid::placeholder {
     background: yellow;
     border-color: #0000008a;
 }
