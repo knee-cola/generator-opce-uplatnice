@@ -14,8 +14,6 @@ Pomoću ovog generatora možete generirati uplatnicu sa 2D kodom, koju ćete mo�
 Demo ove web aplikacije možete pronaći na adresi [knee-cola.github.io/generator-opce-uplatnice/](https://knee-cola.github.io/generator-opce-uplatnice/).
 
 # ToDo
-* premjestiti generator barkoda sa `Uplatnica` na `Forma`
-  * obrisati `Uplatnica`
 * provjeriti zašto duži opis plaćanja ne prolazi validaciju
 * provjeriti da li *model* ispred sebe mora imati "HR"
 * u slučaju kada 2D kod ne može biti generiran umjesto ispisa na Canvas staviti da bude prikazana neka `<html>` poruka (to je fleksibilnije)
