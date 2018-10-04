@@ -1,7 +1,5 @@
 import { LoadDialog } from 'LoadDialog';
 import { SaveDialog } from 'SaveDialog';
-import { Disclaimer } from 'Disclaimer';
-import { About } from 'About';
 import { Forma } from 'Forma';
 import { FormatCurrency } from 'Format';
 

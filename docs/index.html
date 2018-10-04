@@ -4,11 +4,12 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Generator naloga za nacionalna plaćanja HUB 3A</title>
-    <link rel="icon" type="image/png" href="favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Web aplikacija za izradu nacionalni nalog za plaćanje HUB 3A sa 2D bar kodom">
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Material+Icons" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" type="text/css" href="style.css"  async />
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Material+Icons" rel="stylesheet" async />
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-305909-20"></script>
@@ -19,26 +20,6 @@
 
         gtag('config', 'UA-305909-20');
     </script>
-
-    <script src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
-    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
-
-    <script src="./script/lib/bcmath-min.js"></script>
-	<script src="./script/lib/pdf417-min.js"></script>
-    <script src="./script/lib/BarcodePayment.js"></script>
-
-    <script type="text/babel" data-plugins="transform-es2015-modules-umd" src="./script/components/Format.js"></script>
-    <script type="text/babel" data-plugins="transform-es2015-modules-umd" src="./script/components/Components.js"></script>
-    <script type="text/babel" data-plugins="transform-es2015-modules-umd" src="./script/components/Disclaimer.js"></script>
-    <script type="text/babel" data-plugins="transform-es2015-modules-umd" src="./script/components/Barcode.js"></script>
-    <script type="text/babel" data-plugins="transform-es2015-modules-umd" src="./script/components/LoadDialog.js"></script>
-    <script type="text/babel" data-plugins="transform-es2015-modules-umd" src="./script/components/SaveDialog.js"></script>
-    <script type="text/babel" data-plugins="transform-es2015-modules-umd" src="./script/components/About.js"></script>
-    <script type="text/babel" data-plugins="transform-es2015-modules-umd" src="./script/components/Forma.js"></script>
-    <script type="text/babel" data-plugins="transform-es2015-modules-umd" src="./script/components/App.js"></script>
-    <script type="text/babel" data-plugins="transform-es2015-modules-umd" src="./script/main.js"></script>
 </head>
 <body>
     <input type="checkbox" class="toggle-fieldset-about" name="toggle-fieldset-about" id="toggle-fieldset-about" />
@@ -67,5 +48,23 @@
         <p>OBAVEZNO prije korištenje ove uplatnice programom za skeniranje 2D koda provjerite jesu li informacije sadržane u kodu ispravne.</p>
         <p>Činom upotrebe ovog generatora preuzimate punu materijalnu i pravnu odgovornost za posljedice koje korištenje generirane uplatnice može imati!</p>
     </div>
+
+    <script src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
+
+    <script src="./script/lib/bcmath-min.js"></script>
+	<script src="./script/lib/pdf417-min.js"></script>
+    <script src="./script/lib/BarcodePayment.js"></script>
+
+    <script type="text/babel" data-plugins="transform-es2015-modules-umd" src="./script/components/Format.js"></script>
+    <script type="text/babel" data-plugins="transform-es2015-modules-umd" src="./script/components/Components.js"></script>
+    <script type="text/babel" data-plugins="transform-es2015-modules-umd" src="./script/components/Barcode.js"></script>
+    <script type="text/babel" data-plugins="transform-es2015-modules-umd" src="./script/components/LoadDialog.js"></script>
+    <script type="text/babel" data-plugins="transform-es2015-modules-umd" src="./script/components/SaveDialog.js"></script>
+    <script type="text/babel" data-plugins="transform-es2015-modules-umd" src="./script/components/Forma.js"></script>
+    <script type="text/babel" data-plugins="transform-es2015-modules-umd" src="./script/components/App.js"></script>
+    <script type="text/babel" data-plugins="transform-es2015-modules-umd" src="./script/main.js"></script>
 </body>
 </html>
