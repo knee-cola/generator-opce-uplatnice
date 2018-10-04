@@ -5,22 +5,17 @@ class SaveDialog extends React.Component {
     constructor() {
         super();
         this.handleClick = this.handleClick.bind(this);
-        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleNazivChange = this.handleNazivChange.bind(this);
 
         this.state = {
-            naziv_naloga: '',
-            validationMsgType: '',
+            validationMsgType: 'none',
             validationMsg: ''
         };
     }
 
-    handleInputChange(event) {
-        const target = event.target;
-
-        this.setState({
-          [target.id]: target.value
-        });
-      }
+    handleNazivChange(ev) {
+        this.props.onNazivChange(ev.target.value);
+    }
 
     handleClick(ev) {
         ev.preventDefault();
@@ -29,7 +24,7 @@ class SaveDialog extends React.Component {
     }
 
     spremiNalog() {
-        let naziv = this.state.naziv_naloga.trim();
+        let naziv = this.props.naziv_naloga.trim();
 
         if(this.validateNaziv(naziv)) {
 
@@ -42,7 +37,7 @@ class SaveDialog extends React.Component {
             this.showMsg('Nalog je uspješno spremljen na vaše računalo!','ok');
             window.dispatchEvent(new Event('popisNalogaChanges'));
 
-            this.setState({naziv_naloga:''});
+            
         }
     }
 
@@ -74,7 +69,7 @@ class SaveDialog extends React.Component {
     render() {
         return(
             <fieldset className="fieldset-save-dialog">
-                <TextInput id="naziv_naloga" label="Naziv naloga" value={this.state.naziv_naloga} onChange={this.handleInputChange}>
+                <TextInput id="naziv_naloga" label="Naziv naloga" value={this.props.naziv_naloga} onChange={this.handleNazivChange}>
                     <button onClick={this.handleClick}>Spremi</button>
                 </TextInput>
                 <span className="fieldset-save-dialog__hint">Opcionalno naloge možete spremati za kasnije korištenje</span>

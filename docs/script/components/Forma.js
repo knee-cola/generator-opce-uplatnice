@@ -47,6 +47,7 @@ class Forma extends React.Component {
                     <IntentCodes id="sifra__namjene" className="form-field--sifra-namjene"  onChange={this.handleInputChange} value={nalog.sifra__namjene} invalid={validation.sifra__namjene}/>
                     <TextAreaInput id="opis_placanja" className="form-field--opis" label="opis plaćanja" onChange={this.handleInputChange} value={nalog.opis_placanja} invalid={validation.opis_placanja}/>
                 </fieldset>
+                <Barcode {...this.props} />
                 <fieldset className="fieldset-potvrda">
                     <div className="potvrda-field potvrda-field--iznos">{FormatCurrency(nalog.iznos)}</div>
                     <div className="potvrda-field potvrda-field--iban">{nalog.primatelj__iban}</div>

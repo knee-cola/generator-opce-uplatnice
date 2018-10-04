@@ -7,6 +7,7 @@ import { Forma } from 'Forma';
 import { FormatCurrency } from 'Format';
 
 const _defaultState = {
+    naziv_naloga: '',
     nalog: {
         platitelj__ime: '',
         platitelj__adresa: '',
@@ -33,6 +34,7 @@ class App extends React.Component {
         this.handleUserInput = this.handleUserInput.bind(this);
         this.handleNalogLoad = this.handleNalogLoad.bind(this);
         this.handleFormAction = this.handleFormAction.bind(this);
+        this.handleNazivChange = this.handleNazivChange.bind(this);
 
         BarcodePayment.Init({
             ValidateIBAN: false, // Validation is not yet implemented
@@ -42,8 +44,14 @@ class App extends React.Component {
         this.state = _defaultState;
     }
 
-    handleNalogLoad(nalog) {
-        this.setState({nalog:nalog});
+    handleNazivChange(value) {
+        this.setState({
+            naziv_naloga: value
+        });
+    }
+
+    handleNalogLoad(nalogData) {
+        this.setState(nalogData);
     }
 
     handleUserInput(inputId, inputValue) {
@@ -116,17 +124,14 @@ class App extends React.Component {
               validation = this.validateParams(paymentParams),
               encodedText = BarcodePayment.GetEncodedText(paymentParams);
 
-        //             <Uplatnica {...nalog} encodedText={encodedText} />
-
         return(
-        <div>
-            <About />
-            <LoadDialog onNalogLoad={this.handleNalogLoad} />
-            <SaveDialog nalog={nalog} />
-            <Forma onAction={this.handleFormAction} onUserInput={this.handleUserInput} nalog={nalog} validation={validation} />
-            <Disclaimer />
-        </div>
-        );
+            <div>
+                <About />
+                <LoadDialog onNalogLoad={this.handleNalogLoad} />
+                <SaveDialog {...this.state} onNazivChange={this.handleNazivChange} />
+                <Forma onAction={this.handleFormAction} onUserInput={this.handleUserInput} nalog={nalog} validation={validation} encodedText={encodedText} />
+                <Disclaimer />
+            </div>);
     }
 }
 

@@ -69,7 +69,7 @@ class LoadDialog extends React.Component {
 
     ucitajNalog() {
         if(this.props.onNalogLoad) {
-            this.props.onNalogLoad(JSON.parse(localStorage.getItem(this.state.selectedKey)).nalog);
+            this.props.onNalogLoad(JSON.parse(localStorage.getItem(this.state.selectedKey)));
         }
         
         this.showMsg('Nalog uspješno učitan','ok');

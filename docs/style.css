@@ -319,6 +319,14 @@ h2 {
     margin-top: 1em;
 }
 
+.uplatnica__barcode {
+    position: absolute;
+    top: 246px;
+    left: 33px;
+    width: 237px;
+    height: 104px;
+}
+
 @media print {
     /* skrivam suvišan sadržaj */
     .fieldset-novi-nalog,

@@ -3,6 +3,7 @@ class Barcode extends React.Component {
     componentDidUpdate() {
         this.updateCanvas();
 	}
+
     shouldComponentUpdate(newProps, newState) {
         return(JSON.stringify(newProps) !== JSON.stringify(this.props));
 	}
