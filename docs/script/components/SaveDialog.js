@@ -36,8 +36,6 @@ class SaveDialog extends React.Component {
 
             this.showMsg('Nalog je uspješno spremljen na vaše računalo!','ok');
             window.dispatchEvent(new Event('popisNalogaChanges'));
-
-            
         }
     }
 
