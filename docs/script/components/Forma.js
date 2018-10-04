@@ -39,8 +39,8 @@ class Forma extends React.Component {
                     <TextInput id="primatelj__gradMjesto" label="grad/mjesto" onChange={this.handleInputChange} value={nalog.primatelj__gradMjesto} invalid={validation.primatelj__gradMjesto}/>
                 </fieldset>
                 <fieldset className="fieldset-brojke">
-                    <TextInput id="primatelj__iban" label="IBAN primatelja" className="form-field--iban" onChange={this.handleInputChange} value={nalog.primatelj__iban} invalid={validation.primatelj__iban} maxLength={21}/>
                     <TextInput id="iznos" label="iznos uplate" className="form-field--iznos" onChange={this.handleInputChange} value={nalog.iznos} invalid={validation.iznos}/>
+                    <TextInput id="primatelj__iban" label="IBAN primatelja" className="form-field--iban" onChange={this.handleInputChange} value={nalog.primatelj__iban} invalid={validation.primatelj__iban} maxLength={21}/>
                     <br/>
                     <PaymentModels id="primatelj__model" className="form-field--model" onChange={this.handleInputChange} value={nalog.primatelj__model} invalid={validation.primatelj__model}/>
                     <TextInput id="primatelj__pozivNaBroj" className="form-field--poziv-na-broj" onChange={this.handleInputChange} value={nalog.primatelj__pozivNaBroj} invalid={validation.primatelj__pozivNaBroj}/>
