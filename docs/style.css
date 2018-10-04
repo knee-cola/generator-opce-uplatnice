@@ -347,14 +347,15 @@ h2 {
         display: none !important;
     }
 
-    .form-field,
-    .form-field-invalid,
-    .form-field-invalid::placeholder {
+    .uplatnica .form-field,
+    .uplatnica .form-field-invalid,
+    .uplatnica .form-field-invalid::placeholder {
         background: none;
+        border: none;
     }
 
     /* kod ispisa placeholder tekst se ne prikazuje */
-    .form-field::placeholder {
+    .uplatnica .form-field::placeholder {
         color: rgba(0,0,0,0);
     }
 }
