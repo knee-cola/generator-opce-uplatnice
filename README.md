@@ -15,5 +15,5 @@ Demo ove web aplikacije možete pronaći na adresi [knee-cola.github.io/generato
 
 # ToDo
 * provjeriti zašto duži opis plaćanja ne prolazi validaciju
-* provjeriti da li *model* ispred sebe mora imati "HR"
+* provjeriti da li generianje radi sa "HR" sufiksom u oznaci modela
 * u slučaju kada 2D kod ne može biti generiran umjesto ispisa na Canvas staviti da bude prikazana neka `<html>` poruka (to je fleksibilnije)
