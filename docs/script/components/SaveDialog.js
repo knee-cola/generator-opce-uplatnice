@@ -70,7 +70,7 @@ class SaveDialog extends React.Component {
         return(
             <fieldset className="fieldset-save-dialog">
                 <TextInput id="naziv_naloga" label="Naziv naloga" value={this.props.naziv_naloga} onChange={this.handleNazivChange}>
-                    <button onClick={this.handleClick}>Spremi</button>
+                    <button onClick={this.handleClick}>Spremi nalog</button>
                 </TextInput>
                 <span className="fieldset-save-dialog__hint">Opcionalno naloge možete spremati za kasnije korištenje</span>
                 <span className={"fieldset-validation-msg fieldset-validation-msg-"+this.state.validationMsgType}>{this.state.validationMsg}</span>

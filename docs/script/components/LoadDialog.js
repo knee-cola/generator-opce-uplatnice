@@ -101,8 +101,8 @@ class LoadDialog extends React.Component {
         return(
             <fieldset className="fieldset-load-dialog">
                 <TemplateList popisNaloga={this.state.popisNaloga} value={ this.state.selectedKey } onChange={this.handleInputChange} >
-                    <button id="fieldset-load-dialog__load" onClick={this.handleClick} disabled={this.state.popisNaloga.length==0}>Učitaj</button>
-                    <button id="fieldset-load-dialog__delete" onClick={this.handleClick} disabled={this.state.popisNaloga.length==0}>Obriši</button>
+                    <button id="fieldset-load-dialog__load" onClick={this.handleClick} disabled={this.state.popisNaloga.length==0}>Učitaj nalog</button>
+                    <button id="fieldset-load-dialog__delete" onClick={this.handleClick} disabled={this.state.popisNaloga.length==0}>Obriši nalog</button>
                 </TemplateList>
                 <span className={"fieldset-validation-msg fieldset-validation-msg-"+this.state.validationMsgType}>{this.state.validationMsg}</span>
             </fieldset>
