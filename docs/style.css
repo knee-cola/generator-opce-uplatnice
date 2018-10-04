@@ -1,5 +1,12 @@
 body {
     font-family: 'Roboto', sans-serif;
+
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
 }
 
 .uplatnica {
@@ -182,7 +189,11 @@ fieldset {
     width: 820px;
 }
 
-.fieldset-about--expanded {
+.toggle-fieldset-about {
+    display: none;
+}
+
+.toggle-fieldset-about:checked ~ .fieldset-about {
     height: auto;
 }
 

@@ -121,7 +121,6 @@ class App extends React.Component {
 
         return(
             <div>
-                <About />
                 <SaveDialog {...this.state} onNazivChange={this.handleNazivChange} />
                 <LoadDialog onNalogLoad={this.handleNalogLoad} />
                 <Forma onAction={this.handleFormAction} onUserInput={this.handleUserInput} nalog={nalog} validation={validation} encodedText={encodedText} />
