@@ -1,5 +1,5 @@
 # Što je ovo?
-Ovo je source kod generatora naloga za plaćanje HUB 3A  sa 2D kodom (opće uplatnice).
+Ovo je source kod generatora naloga za plaćanje HUB 3A sa 2D kodom (opće uplatnice).
 
 Ova aplikacija predstavlja nadogradnju web aplikacije [github.com/Bikonja/generator-barkoda-uplatnica](https://github.com/Bikonja/generator-barkoda-uplatnica), čiji je autor [Igor Loborec](https://github.com/Bikonja).
 
