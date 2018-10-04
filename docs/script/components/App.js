@@ -1,4 +1,3 @@
-import { Uplatnica } from 'Uplatnica';
 import { LoadDialog } from 'LoadDialog';
 import { SaveDialog } from 'SaveDialog';
 import { Disclaimer } from 'Disclaimer';
