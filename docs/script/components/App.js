@@ -11,11 +11,9 @@ const _defaultState = {
     nalog: {
         platitelj__ime: '',
         platitelj__adresa: '',
-        platitelj__postanskiBroj: '',
         platitelj__gradMjesto: '',
         primatelj__ime: '',
         primatelj__adresa: '',
-        primatelj__postanskiBroj: '',
         primatelj__gradMjesto: '',
         primatelj__iban: '',
         iznos: '',
@@ -80,10 +78,10 @@ class App extends React.Component {
         paymentParams.Iznos =  FormatCurrency(nalog.iznos);
         paymentParams.ImePlatitelja = nalog.platitelj__ime;
         paymentParams.AdresaPlatitelja = nalog.platitelj__adresa;
-        paymentParams.SjedistePlatitelja = (nalog.platitelj__postanskiBroj + ' ' + nalog.platitelj__gradMjesto).trim();
+        paymentParams.SjedistePlatitelja = nalog.platitelj__gradMjesto.trim();
         paymentParams.Primatelj = nalog.primatelj__ime;
         paymentParams.AdresaPrimatelja = nalog.primatelj__adresa;
-        paymentParams.SjedistePrimatelja = (nalog.primatelj__postanskiBroj + ' ' + nalog.primatelj__gradMjesto).trim();
+        paymentParams.SjedistePrimatelja = nalog.primatelj__gradMjesto.trim();
         paymentParams.IBAN = nalog.primatelj__iban;
         paymentParams.ModelPlacanja = nalog.primatelj__model;
         paymentParams.PozivNaBroj = nalog.primatelj__pozivNaBroj;
@@ -103,11 +101,9 @@ class App extends React.Component {
             resultCode: resultCode,
             platitelj__ime: (resultCode & resultEnum.PayerNameInvalid || resultCode & resultEnum.PayerNameMaxLengthExceeded),
             platitelj__adresa: (resultCode & resultEnum.PayerAddressInvalid || resultCode & resultEnum.PayerAddressMaxLengthExceeded),
-            platitelj__postanskiBroj: (resultCode & resultEnum.PayerHQInvalid || resultCode & resultEnum.PayerHQMaxLengthExceeded),
             platitelj__gradMjesto: (resultCode & resultEnum.PayerHQInvalid || resultCode & resultEnum.PayerHQMaxLengthExceeded),
             primatelj__ime: (resultCode & resultEnum.ReceiverNameInvalid || resultCode & resultEnum.ReceiverNameMaxLengthExceeded),
             primatelj__adresa: (resultCode & resultEnum.ReceiverAddressInvalid || resultCode & resultEnum.ReceiverAddressMaxLengthExceeded),
-            primatelj__postanskiBroj: (resultCode & resultEnum.ReceiverHQInvalid || resultCode & resultEnum.ReceiverHQMaxLengthExceeded),
             primatelj__gradMjesto: (resultCode & resultEnum.ReceiverHQInvalid || resultCode & resultEnum.ReceiverHQMaxLengthExceeded),
             primatelj__iban: (resultCode & resultEnum.IBANInvalid || resultCode & resultEnum.IBANMaxLengthExceeded),
             iznos: (resultCode & resultEnum.PricePatternInvalid || resultCode & resultEnum.PriceMaxLengthExceeded),
