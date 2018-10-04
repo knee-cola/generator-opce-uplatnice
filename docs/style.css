@@ -168,7 +168,7 @@ fieldset {
 .fieldset-save-dialog {
     height: auto;
     display: block; /* zauzmi cijeli redak */
-    width: 820px;
+    width: 817px;
     padding: .1em 1em;
     margin-bottom: .2em;
     border: 2px solid #f26437;
