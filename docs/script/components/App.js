@@ -1,5 +1,5 @@
 import { LoadDialog } from 'LoadDialog';
-import { SaveDialog } from 'SaveDialog';
+import { SaveDialogContainer } from 'SaveDialogContainer';
 import { Forma } from 'Forma';
 import { FormatCurrency } from 'Format';
 
@@ -119,7 +119,7 @@ class App extends React.Component {
 
         return(
             <div>
-                <SaveDialog {...this.state} onNazivChange={this.handleNazivChange} />
+                <SaveDialogContainer {...this.state} onNazivChange={this.handleNazivChange} />
                 <LoadDialog onNalogLoad={this.handleNalogLoad} />
                 <Forma onAction={this.handleFormAction} onUserInput={this.handleUserInput} nalog={nalog} validation={validation} encodedText={encodedText} />
             </div>);
