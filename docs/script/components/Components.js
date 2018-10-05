@@ -1,5 +1,5 @@
 
-class GenericSelect extends React.Component {
+class SelectBase extends React.Component {
     render() {
         let className = "form-field " + this.props.className;
         return(
@@ -13,19 +13,19 @@ class GenericSelect extends React.Component {
 }
 class PaymentModels extends React.Component {
     render() {
-        return(<GenericSelect className={this.props.className}>
+        return(<SelectBase className={this.props.className}>
             <option key="" value=""></option>
             { BarcodePayment.PaymentModels.map(({model}) => <option key={model} value={"HR"+model}>{"HR"+model}</option>) }
-        </GenericSelect>);
+        </SelectBase>);
     }
 }
 
 class IntentCodes extends React.Component {
     render() {
-        return(<GenericSelect className={this.props.className}>
+        return(<SelectBase className={this.props.className}>
         <option key="" value=""></option>            
             { BarcodePayment.IntentCodes.map(el => <option key={el.code} value={el.code}>{el.code+" -  "+el.title}</option>) }
-        </GenericSelect>);
+        </SelectBase>);
     }
 }
 
@@ -53,9 +53,9 @@ class SpremljeniNaloziSelect extends React.Component {
     render() {
 
         return(
-        <GenericSelect label="Šifra namjene" className={this.props.className} buttons={this.props.children}>
+        <SelectBase label="Šifra namjene" className={this.props.className} buttons={this.props.children}>
             { this.props.popisNaloga.map((el, ix) => <option key={el.key} value={el.key}>{el.naziv_naloga}</option>) }
-        </GenericSelect>);
+        </SelectBase>);
     }
 }
 
