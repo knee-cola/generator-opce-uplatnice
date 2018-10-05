@@ -225,7 +225,7 @@ fieldset {
     color: #f26437;
 }
 
-.fieldset-about--expanded h1:after {
+.toggle-fieldset-about:checked ~ .fieldset-about h1:after {
     content: 'keyboard_arrow_up';
 }
 
