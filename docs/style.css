@@ -258,6 +258,10 @@ fieldset {
     margin-right: .3em;
 }
 
+.color-red {
+    color: red;
+}
+
 .fieldset-load-dialog select,
 .fieldset-save-dialog input {
     display: inline-block;
@@ -323,7 +327,7 @@ fieldset {
 
 
 h2 {
-    font-size: 1.2em;
+    font-size: 1.3em;
     text-transform: uppercase;
     margin: 0 0 .2em 0;
 }
