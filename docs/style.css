@@ -53,10 +53,7 @@ fieldset {
 .fieldset-platitelj,
 .fieldset-primatelj {
     position: absolute;
-    overflow: hidden;
-    width: 178px;
     left: 29px;
-    overflow: hidden;
 }
 
 .fieldset-platitelj {
@@ -72,7 +69,7 @@ fieldset {
 .fieldset-platitelj .form-field,
 .fieldset-primatelj .form-field {
     position: static;
-    width: 100%;
+    width: 176px;
     display: block;
 }
 
