@@ -7,12 +7,13 @@ class GenericSelect extends React.Component {
                 <select className={className} id={this.props.id} onChange={this.props.onChange} value={this.props.value}>
                     { this.props.children }
                 </select>
+                { this.props.buttons }
             </div>);
     }
 }
 class PaymentModels extends React.Component {
     render() {
-        return(<GenericSelect {...this.props}>
+        return(<GenericSelect className={this.props.className}>
             <option key="" value=""></option>
             { BarcodePayment.PaymentModels.map(({model}) => <option key={model} value={"HR"+model}>{"HR"+model}</option>) }
         </GenericSelect>);
@@ -21,7 +22,7 @@ class PaymentModels extends React.Component {
 
 class IntentCodes extends React.Component {
     render() {
-        return(<GenericSelect {...this.props}>
+        return(<GenericSelect className={this.props.className}>
         <option key="" value=""></option>            
             { BarcodePayment.IntentCodes.map(el => <option key={el.code} value={el.code}>{el.code+" -  "+el.title}</option>) }
         </GenericSelect>);
@@ -51,9 +52,9 @@ class TextAreaInput extends React.Component {
 class SpremljeniNaloziSelect extends React.Component {
     render() {
 
-        return(<GenericSelect label="Šifra namjene">
+        return(
+        <GenericSelect label="Šifra namjene" className={this.props.className} buttons={this.props.children}>
             { this.props.popisNaloga.map((el, ix) => <option key={el.key} value={el.key}>{el.naziv_naloga}</option>) }
-            { this.props.children }
         </GenericSelect>);
     }
 }
