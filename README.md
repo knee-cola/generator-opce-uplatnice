@@ -13,6 +13,13 @@ Pomoću ovog generatora možete generirati uplatnicu sa 2D kodom, koju ćete mo�
 ## Demo
 Demo ove web aplikacije možete pronaći na adresi [knee-cola.github.io/generator-opce-uplatnice/](https://knee-cola.github.io/generator-opce-uplatnice/).
 
+# Detalji imaplementacija
+## Spremanje naloga u datoteku
+
+Nativni `<input>` za odabir datoteke ne podržava prilagodbu prikazane labele. Iz tog razloga je nativni `<input>` skriven kroz CSS, te je na njegovo mjesto dodan klasični `<button>`, koji putem JavaScripta trigerira `click` akciju na nativnom `<input>`-u.
+
+Nativni input je skriven tako da mu je kroz CSS zadan mala dimenzija. Naime ako bi mu postavili `display: hidden;`, tada browser ne bi na njega ispravno reagirao (tako sam barem pročitao na Stack Overflow ... nisam si dato truda da testiram).
+
 # ToDo
 * provjeriti zašto duži opis plaćanja ne prolazi validaciju
 * provjeriti da li generianje radi sa "HR" sufiksom u oznaci modela
