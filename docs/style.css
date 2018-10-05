@@ -283,10 +283,8 @@ fieldset {
     font-size: 0.8em;
     margin-left: 2em;
     position: relative;
-    width: 317px;
     vertical-align: middle;
-    margin: .5em 2em .5em 66px;
-    text-align: justify;
+    margin: .5em 1em .5em 2em;
 }
 .fieldset-save-dialog__hint::before {
     content: "contact_support";
