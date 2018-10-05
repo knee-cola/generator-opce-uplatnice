@@ -1,14 +1,4 @@
-import { GenericSelect } from 'Components';
-
-class TemplateList extends GenericSelect {
-    constructor() {
-        super();
-        this.label = "Spremljeni nalozi";
-    }
-    optionFactory() {
-        return(this.props.popisNaloga.map((el, ix) => <option key={el.key} value={el.key}>{el.naziv_naloga}</option>));
-    }
-}
+import { SpremljeniNaloziSelect } from 'Components';
 
 class LoadDialog extends React.Component {
 
@@ -133,12 +123,12 @@ class LoadDialog extends React.Component {
     render() {
         return(
             <fieldset className="fieldset-load-dialog">
-                <TemplateList popisNaloga={this.state.popisNaloga} value={ this.state.selectedKey } onChange={this.handleInputChange} >
+                <SpremljeniNaloziSelect popisNaloga={this.state.popisNaloga} value={ this.state.selectedKey } onChange={this.handleInputChange} >
                     <button id="fieldset-load-dialog__load" onClick={this.handleClick} disabled={this.state.popisNaloga.length==0}>Učitaj odabrani nalog</button>
                     <button id="fieldset-load-dialog__delete" onClick={this.handleClick} disabled={this.state.popisNaloga.length==0}>Obriši odabrani nalog</button>
                     <input className="fieldset-load-dialog__load-file" type="file" id="load-file" name="load-file" onChange={this.handleFileSelected} accept=".json" ref={this.loadFileRef} />
                     <button className="fieldset-load-dialog__load-file-button" id="fieldset-load-dialog__load-file-button" onClick={this.handleClick}>Učitaj nalog iz datoteke</button>
-                </TemplateList>
+                </SpremljeniNaloziSelect>
                 <span className={"fieldset-validation-msg fieldset-validation-msg-"+this.state.validationMsgType}>{this.state.validationMsg}</span>
             </fieldset>
         );

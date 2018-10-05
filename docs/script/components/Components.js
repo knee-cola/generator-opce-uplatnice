@@ -4,37 +4,27 @@ class GenericSelect extends React.Component {
         let className = "form-field " + this.props.className;
         return(
             <div>
-                <select className={className} id={this.props.id} onChange={this.props.onChange} value={this.props.value} placeholder={this.label}>{ this.optionFactory() }</select>
-                {this.props.children}
+                <select className={className} id={this.props.id} onChange={this.props.onChange} value={this.props.value}>
+                    { this.props.children }
+                </select>
             </div>);
     }
 }
-class PaymentModels extends GenericSelect {
-    constructor() {
-        super();
-        this.label = "Model";
-    }
-    optionFactory() {
-        
-        let models = BarcodePayment.PaymentModels.map(el => 
-        {
-            let modelCode = "HR"+el.model;
-            return(<option key={modelCode} value={modelCode}>{modelCode}</option>);
-        });
-        models.unshift(<option key="" value=""></option>);
-        return(models);
+class PaymentModels extends React.Component {
+    render() {
+        return(<GenericSelect {...this.props}>
+            <option key="" value=""></option>
+            { BarcodePayment.PaymentModels.map(({model}) => <option key={model} value={"HR"+model}>{"HR"+model}</option>) }
+        </GenericSelect>);
     }
 }
 
-class IntentCodes extends GenericSelect {
-    constructor() {
-        super();
-        this.label = "Šifra namjene";
-    }
-    optionFactory() {
-        let codes = BarcodePayment.IntentCodes.map(el => <option key={el.code} value={el.code}>{el.code+" -  "+el.title}</option>);
-        codes.unshift(<option key="" value=""></option>);
-        return(codes);
+class IntentCodes extends React.Component {
+    render() {
+        return(<GenericSelect {...this.props}>
+        <option key="" value=""></option>            
+            { BarcodePayment.IntentCodes.map(el => <option key={el.code} value={el.code}>{el.code+" -  "+el.title}</option>) }
+        </GenericSelect>);
     }
 }
 
@@ -58,4 +48,15 @@ class TextAreaInput extends React.Component {
     }
 }
 
-export { GenericSelect, PaymentModels, IntentCodes, TextInput, TextAreaInput }
+class SpremljeniNaloziSelect extends React.Component {
+    render() {
+
+        return(<GenericSelect label="Šifra namjene">
+            { this.props.popisNaloga.map((el, ix) => <option key={el.key} value={el.key}>{el.naziv_naloga}</option>) }
+            { this.props.children }
+        </GenericSelect>);
+    }
+}
+
+
+export { SpremljeniNaloziSelect, PaymentModels, IntentCodes, TextInput, TextAreaInput }
