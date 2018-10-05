@@ -5,6 +5,7 @@ class SaveDialog extends React.Component {
     constructor() {
         super();
         this.handleClick = this.handleClick.bind(this);
+        this.handleNazivChange = this.handleNazivChange.bind(this);
     }
 
     handleClick(ev) {
@@ -18,6 +19,10 @@ class SaveDialog extends React.Component {
                 this.props.onSave2FileClick();
                 break;
         }
+    }
+
+    handleNazivChange(ev) {
+        this.props.onNazivChange(ev.target.value);
     }
 
     render() {

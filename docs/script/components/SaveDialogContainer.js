@@ -6,16 +6,11 @@ class SaveDialogContainer extends React.Component {
         super();
         this.handleSave2BrowserClick = this.handleSave2BrowserClick.bind(this);
         this.handleSave2FileClick = this.handleSave2FileClick.bind(this);
-        this.handleNazivChange = this.handleNazivChange.bind(this);
 
         this.state = {
             validationMsgType: 'none',
             validationMsg: ''
         };
-    }
-
-    handleNazivChange(ev) {
-        this.props.onNazivChange(ev.target.value);
     }
 
     handleSave2BrowserClick(ev) {
@@ -99,7 +94,7 @@ class SaveDialogContainer extends React.Component {
                 validationMsg={this.state.validationMsg}
                 validationMsgType={this.state.validationMsgType}
 
-                onNazivChange={this.handleNazivChange}
+                onNazivChange={this.props.onNazivChange}
                 onSave2BrowserClick={this.handleSave2BrowserClick}
                 onSave2FileClick={this.handleSave2FileClick} />);
     }
