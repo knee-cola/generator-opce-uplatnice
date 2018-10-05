@@ -250,7 +250,7 @@ fieldset {
 }
 
 .fieldset-load-dialog select {
-    width: 484px;
+    width: 284px;
     height: 1.7em;
 }
 
@@ -263,15 +263,30 @@ fieldset {
     display: inline-block;
     margin: .3em;
 }
+.fieldset-load-dialog__load-file {
+  /* https://stackoverflow.com/questions/686905/labeling-file-upload-button */
+  /* visibility: hidden etc. wont work */
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
 
 .fieldset-save-dialog div {
     display: inline-block;
 }
 
 .fieldset-save-dialog__hint {
+    display: inline-block;
     font-size: 0.8em;
-    margin-left: 4em;
+    margin-left: 2em;
     position: relative;
+    width: 317px;
+    vertical-align: middle;
+    margin: .5em 2em .5em 66px;
+    text-align: justify;
 }
 .fieldset-save-dialog__hint::before {
     content: "contact_support";

@@ -20,23 +20,56 @@ class SaveDialog extends React.Component {
     handleClick(ev) {
         ev.preventDefault();
         this.hideMsg();
-        this.spremiNalog();
+
+        switch(ev.target.name) {
+            case "save":
+                this.spremiNalog();
+                break;
+            case "download":
+            this.downloadNalog();
+            break;
+        }
     }
 
     spremiNalog() {
         let naziv = this.props.naziv_naloga.trim();
-
         if(this.validateNaziv(naziv)) {
 
-            localStorage.setItem(naziv.replace(/\s+/g,'-').toLocaleLowerCase(),
-                JSON.stringify({
-                    naziv_naloga: naziv,
-                    nalog: this.props.nalog
-                }));
+            let nalogJson = JSON.stringify({ naziv_naloga: naziv, nalog: this.props.nalog }),
+                recordName = naziv.replace(/\s+/g,'-').toLocaleLowerCase();
+
+            localStorage.setItem(recordName, nalogJson);
 
             this.showMsg('Nalog je uspješno spremljen na vaše računalo!','ok');
             window.dispatchEvent(new Event('popisNalogaChanges'));
         }
+    }
+
+    downloadNalog() {
+        let naziv = this.props.naziv_naloga.trim();
+
+        if(this.validateNaziv(naziv)) {
+
+            const nalogJson = JSON.stringify({ naziv_naloga: naziv, nalog: this.props.nalog }, null, 2),
+                fileName = naziv.replace(/\s+/g,'-').toLocaleLowerCase(),
+                blob = new Blob([nalogJson], {type : 'application/json'});
+            
+            this.saveFile(blob, fileName);
+        }
+    }
+    
+    saveFile(blob, fileName) {
+        const url = window.URL.createObjectURL(blob),
+              a = document.createElement('a');
+
+        document.body.appendChild(a);
+        a.style = "display: none";
+
+        a.href = url;
+        a.download = fileName;
+        a.click();
+
+        window.URL.revokeObjectURL(url);
     }
 
     validateNaziv(naziv) {
@@ -68,9 +101,10 @@ class SaveDialog extends React.Component {
         return(
             <fieldset className="fieldset-save-dialog">
                 <TextInput id="naziv_naloga" label="Naziv naloga" value={this.props.naziv_naloga} onChange={this.handleNazivChange}>
-                    <button onClick={this.handleClick}>Spremi nalog</button>
+                    <button name="save" onClick={this.handleClick}>Spremi nalog</button>&nbsp;
+                    <button name="download" onClick={this.handleClick}>Preuzmi datoteku</button>
                 </TextInput>
-                <span className="fieldset-save-dialog__hint">Opcionalno naloge možete spremati za kasnije korištenje</span>
+                <span className="fieldset-save-dialog__hint">Ako popunjeni nalog planirate još koji puta koristiti možete ga trajno <strong>spremiti</strong> u memoriju web preglednika ili <strong>preuzeti</strong> u obliku datoteke na lokalno računalo.</span>
                 <span className={"fieldset-validation-msg fieldset-validation-msg-"+this.state.validationMsgType}>{this.state.validationMsg}</span>
             </fieldset>
         );
