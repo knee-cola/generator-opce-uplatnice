@@ -22,6 +22,9 @@ Nativni `<input>` za odabir datoteke ne podržava prilagodbu prikazane labele. I
 
 Nativni input je skriven tako da mu je kroz CSS zadan mala dimenzija. Naime ako bi mu postavili `display: hidden;`, tada browser ne bi na njega ispravno reagirao (tako sam barem pročitao na Stack Overflow ... nisam si dato truda da testiram).
 
+## Spremanju u PDF
+Spremanje generiranog naloga u PDF nije nativno podržano. Umjesto toga korisnik može odabrati ispis u PDF (podržano unutar nekih web preglednika).
+
 # ToDo
 * provjeriti zašto duži opis plaćanja ne prolazi validaciju
 * provjeriti da li generianje radi sa "HR" sufiksom u oznaci modela
