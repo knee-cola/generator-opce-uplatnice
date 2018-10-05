@@ -1,4 +1,4 @@
-import { LoadDialog } from 'LoadDialog';
+import { LoadDialogContainer } from 'LoadDialogContainer';
 import { SaveDialogContainer } from 'SaveDialogContainer';
 import { Forma } from 'Forma';
 import { FormatCurrency } from 'Format';
@@ -120,7 +120,7 @@ class App extends React.Component {
         return(
             <div>
                 <SaveDialogContainer {...this.state} onNazivChange={this.handleNazivChange} />
-                <LoadDialog onNalogLoad={this.handleNalogLoad} />
+                <LoadDialogContainer onNalogLoad={this.handleNalogLoad} />
                 <Forma onAction={this.handleFormAction} onUserInput={this.handleUserInput} nalog={nalog} validation={validation} encodedText={encodedText} />
             </div>);
     }
