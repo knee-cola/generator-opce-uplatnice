@@ -8,7 +8,7 @@ Ova aplikacija predstavlja nadogradnju web aplikacije [github.com/Bikonja/genera
 ## Motivacija
 Neke tvrtke uz svoje račune šalju uplatnice koje ne sadrže 2D kod, što onemogućuje plaćanje tih računa u Konzumu i Tisku.
 
-Pomoću ovog generatora možete generirati uplatnicu sa 2D kodom, koju ćete moći uplatiti na blagajnama Konzuma, kioscima Tiska i slično.
+Pomoću ovog generatora možete generirati uplatnicu sa 2D kodom, koju ćete moći uplatiti na blagajnama Konzuma, kioscima Tiska i slično...
 
 ## Demo
 Demo ove web aplikacije možete pronaći na adresi [knee-cola.github.io/generator-opce-uplatnice/](https://knee-cola.github.io/generator-opce-uplatnice/).
