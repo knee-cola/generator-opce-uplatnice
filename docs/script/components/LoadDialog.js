@@ -34,6 +34,9 @@ class LoadDialog extends React.Component {
     // source: https://www.html5rocks.com/en/tutorials/file/dndfiles/
     handleFileSelected(ev) {
         this.props.onFileSelected(ev.target.files[0]);
+        // resetiran sadržaj inputa tako da ako korisnik
+        // još jednom odabere istu datoteku stvar generira `change` događaj
+        ev.target.value = null;
     }
 
     render() {
