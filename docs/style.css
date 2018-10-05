@@ -9,6 +9,11 @@ body {
     -webkit-touch-callout: none;
 }
 
+.centered-container {
+    margin: 0 auto;
+    width: 900px;
+}
+
 .uplatnica {
     position: relative;
     display: block;

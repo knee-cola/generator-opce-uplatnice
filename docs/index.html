@@ -16,43 +16,44 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'UA-305909-20');
     </script>
 </head>
 <body>
-    <input type="checkbox" class="toggle-fieldset-about" name="toggle-fieldset-about" id="toggle-fieldset-about" />
-    <fieldset class="fieldset-about" >
-        <label for="toggle-fieldset-about"><h1 onClick={this.handleClick}>Upute & Info</h1></label>
-        <h2>Što je ovo?</h2>
-        <p>Ovo je web aplikacija pomoću koje možete generirati nacionalni nalog za plaćanje HUB 3A sa 2D bar kodom.</p>
-        <h2>Kako se koristi?</h2>
-        <p>Nalog za plaćanje popunjavate tako da kliknete na polje koje želite popuniti. 2D bar će biti genriran automatski.</p>
-        <p>Obratite pažnju na polja označena žutom bojom. Ona nam govori da polje nije ispravno popunjeno. 2D kod neće biti generiran sve dok sva polja nisu ispravno popunjena!</p>
-        <h2>Spremanje naloga</h2>
-        <p>Nakon što unesete nalog, možete ga spremiti za kasniju upotrebu (može biti naknadno mijenjan). To možete napraviti na dva načina:</p>
-            <ul>
-                <li>spremanje u web preglednik</li>
-                <li>spremanje u datoteku</li>
-            </ul>
-        <p><strong>SPREMANJE U WEB PREGLEDNIK</strong><br/>Ako odaberete spremanje <strong>u web preglednik</strong> unešeni podaci će biti trajno spremljeni unutar preglednika koji trenutno koristite. Tako spremljeni nalozi su prikazani u padajućoj listi u okviru za učitavanje naloga. Kod ovog načina spremanja naloge koje ste prethodno spremili ćete jako lagano pronaći. Mana je što će spremljeni nalozi biti dostupi samo na računalu na kojem su spremljeni.</p>
-        <p><strong>SPREMANJE U DATOTEKU</strong><br/>Ako odaberet opciju spremanja <strong>u datoteku</strong> ta datoteka će biti spremljena na vaše računalo. Prednost ovog načina je što dobivenu datoteku možete poslati putem e-maila, kopirati na USB stick, spremiti na Google Drive ili One Drive. Mana ovog načina je što ćete morati razmišljati kamo ste datoteku spremili svaki puta kada vam ona zatreba.</p>
-        <p><strong>SPREMANJE U PDF</strong><br/>Ako želite popunjeni nalog spremiti u PDF kliknite na ISPIS NALOGA, te umjesto pisača odaberite spremanje u PDF format.</p>
-        <h2>Motivacija</h2>
-        <p>Neke tvrtke uz svoje račune šalju uplatnice (HUB 3A) koje ne sadrže 2D kod, što onemogućuje plaćanje tih računa u Konzumu i Tisku.</p>
-        <p>Pomoću ovog generatora možete generirati uplatnicu sa 2D kodom, koju ćete moći uplatiti na blagajnama Konzuma, kioscima Tiska i slično.</p>
-        <p>Izvorni kod ove web aplikacije možete pronaći na slijedećoj GitHub stranici: <a href="https://github.com/knee-cola/generator-opce-uplatnice" target="_blank">generator-opce-uplatnice</a> </p>
-        <h2 class="color-red">UPOZORENJE</h2>
-        <p class="color-red">Autor ove web aplikacije NE jamčim za ispravnost generiranog 2D koda.</p>
-        <p class="color-red">OBAVEZNO prije korištenje ove uplatnice programom za skeniranje 2D koda provjerite jesu li informacije sadržane u kodu ispravne.</p>
-        <p class="color-red">Činom upotrebe ovog generatora preuzimate punu materijalnu i pravnu odgovornost za posljedice koje korištenje generirane uplatnice može imati!</p>
-    </fieldset>
-    <div id="container"></div>
-    <div class="uplatnica__disclaimer">
-        <p><strong>VAŽNO UPOZORENJE</strong></p>
-        <p>Autor ove web aplikacije NE jamčim za ispravnost generiranog 2D koda.</p>
-        <p>OBAVEZNO prije korištenje ove uplatnice programom za skeniranje 2D koda provjerite jesu li informacije sadržane u kodu ispravne.</p>
-        <p>Činom upotrebe ovog generatora preuzimate punu materijalnu i pravnu odgovornost za posljedice koje korištenje generirane uplatnice može imati!</p>
+    <div class="centered-container">
+        <input type="checkbox" class="toggle-fieldset-about" name="toggle-fieldset-about" id="toggle-fieldset-about" />
+        <fieldset class="fieldset-about" >
+            <label for="toggle-fieldset-about"><h1 onClick={this.handleClick}>Upute & Info</h1></label>
+            <h2>Što je ovo?</h2>
+            <p>Ovo je web aplikacija pomoću koje možete generirati nacionalni nalog za plaćanje HUB 3A sa 2D bar kodom.</p>
+            <h2>Kako se koristi?</h2>
+            <p>Nalog za plaćanje popunjavate tako da kliknete na polje koje želite popuniti. 2D bar će biti genriran automatski.</p>
+            <p>Obratite pažnju na polja označena žutom bojom. Ona nam govori da polje nije ispravno popunjeno. 2D kod neće biti generiran sve dok sva polja nisu ispravno popunjena!</p>
+            <h2>Spremanje naloga</h2>
+            <p>Nakon što unesete nalog, možete ga spremiti za kasniju upotrebu (može biti naknadno mijenjan). To možete napraviti na dva načina:</p>
+                <ul>
+                    <li>spremanje u web preglednik</li>
+                    <li>spremanje u datoteku</li>
+                </ul>
+            <p><strong>SPREMANJE U WEB PREGLEDNIK</strong><br/>Ako odaberete spremanje <strong>u web preglednik</strong> unešeni podaci će biti trajno spremljeni unutar preglednika koji trenutno koristite. Tako spremljeni nalozi su prikazani u padajućoj listi u okviru za učitavanje naloga. Kod ovog načina spremanja naloge koje ste prethodno spremili ćete jako lagano pronaći. Mana je što će spremljeni nalozi biti dostupi samo na računalu na kojem su spremljeni.</p>
+            <p><strong>SPREMANJE U DATOTEKU</strong><br/>Ako odaberet opciju spremanja <strong>u datoteku</strong> ta datoteka će biti spremljena na vaše računalo. Prednost ovog načina je što dobivenu datoteku možete poslati putem e-maila, kopirati na USB stick, spremiti na Google Drive ili One Drive. Mana ovog načina je što ćete morati razmišljati kamo ste datoteku spremili svaki puta kada vam ona zatreba.</p>
+            <p><strong>SPREMANJE U PDF</strong><br/>Ako želite popunjeni nalog spremiti u PDF kliknite na ISPIS NALOGA, te umjesto pisača odaberite spremanje u PDF format.</p>
+            <h2>Motivacija</h2>
+            <p>Neke tvrtke uz svoje račune šalju uplatnice (HUB 3A) koje ne sadrže 2D kod, što onemogućuje plaćanje tih računa u Konzumu i Tisku.</p>
+            <p>Pomoću ovog generatora možete generirati uplatnicu sa 2D kodom, koju ćete moći uplatiti na blagajnama Konzuma, kioscima Tiska i slično.</p>
+            <p>Izvorni kod ove web aplikacije možete pronaći na slijedećoj GitHub stranici: <a href="https://github.com/knee-cola/generator-opce-uplatnice" target="_blank">generator-opce-uplatnice</a> </p>
+            <h2 class="color-red">UPOZORENJE</h2>
+            <p class="color-red">Autor ove web aplikacije NE jamčim za ispravnost generiranog 2D koda.</p>
+            <p class="color-red">OBAVEZNO prije korištenje ove uplatnice programom za skeniranje 2D koda provjerite jesu li informacije sadržane u kodu ispravne.</p>
+            <p class="color-red">Činom upotrebe ovog generatora preuzimate punu materijalnu i pravnu odgovornost za posljedice koje korištenje generirane uplatnice može imati!</p>
+        </fieldset>
+        <div id="container"></div>
+        <div class="uplatnica__disclaimer">
+            <p><strong>VAŽNO UPOZORENJE</strong></p>
+            <p>Autor ove web aplikacije NE jamčim za ispravnost generiranog 2D koda.</p>
+            <p>OBAVEZNO prije korištenje ove uplatnice programom za skeniranje 2D koda provjerite jesu li informacije sadržane u kodu ispravne.</p>
+            <p>Činom upotrebe ovog generatora preuzimate punu materijalnu i pravnu odgovornost za posljedice koje korištenje generirane uplatnice može imati!</p>
+        </div>
     </div>
 
     <script src="https://unpkg.com/react@16.5.2/umd/react.production.min.js"></script>
