@@ -11,6 +11,7 @@ class SelectBase extends React.Component {
             </div>);
     }
 }
+
 class PaymentModels extends React.Component {
     render() {
         return(<SelectBase className={this.props.className}>
@@ -29,16 +30,6 @@ class IntentCodes extends React.Component {
     }
 }
 
-class TextInput extends React.Component {
-    render() {
-        let className = "form-field " + (this.props.className ? this.props.className : '') + (this.props.invalid ? ' form-field-invalid' : '')
-
-        return(<div>
-            <input id={this.props.id} className={className} type="text" value={this.props.value} onChange={this.props.onChange} placeholder={this.props.label} maxLength={this.props.maxLength} autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false" />
-            {this.props.children}
-        </div>);
-    }
-}
 class TextAreaInput extends React.Component {
     render() {
         let className = "form-field " + (this.props.className ? this.props.className : '') + (this.props.invalid ? ' form-field-invalid' : '')
@@ -58,6 +49,5 @@ class SpremljeniNaloziSelect extends React.Component {
         </SelectBase>);
     }
 }
-
 
 export { SpremljeniNaloziSelect, PaymentModels, IntentCodes, TextInput, TextAreaInput }

@@ -1,4 +1,5 @@
-import { PaymentModels, IntentCodes, TextInput, NumericInput, TextAreaInput } from 'Components';
+import { PaymentModels, IntentCodes, TextAreaInput } from 'Components';
+import { ConnectedTextInput } from 'ConnectedTextInput';
 import { Barcode } from 'Barcode';
 import { FormatCurrency } from 'Format';
 class Forma extends React.Component {
@@ -29,21 +30,21 @@ class Forma extends React.Component {
             <form className="uplatnica" >
                 <img className="uplatnica__img" src="./img/uplatnica.jpg"/>
                 <fieldset className="fieldset-platitelj">
-                    <TextInput id="platitelj__ime" label="ime i prezime / naziv" onChange={this.handleInputChange} value={nalog.platitelj__ime} invalid={validation.platitelj__ime} />
-                    <TextInput id="platitelj__adresa" label="adresa" onChange={this.handleInputChange} value={nalog.platitelj__adresa} invalid={validation.platitelj__adresa}/>
-                    <TextInput id="platitelj__gradMjesto" label="grad/mjesto" onChange={this.handleInputChange} value={nalog.platitelj__gradMjesto} invalid={validation.platitelj__gradMjesto}/>
+                    <ConnectedTextInput nalog={nalog} validation={validation} id="platitelj__ime" label="ime i prezime / naziv" onChange={this.handleInputChange} />
+                    <ConnectedTextInput nalog={nalog} validation={validation} id="platitelj__adresa" label="adresa" onChange={this.handleInputChange} />
+                    <ConnectedTextInput nalog={nalog} validation={validation} id="platitelj__gradMjesto" label="grad/mjesto" onChange={this.handleInputChange} />
                 </fieldset>
                 <fieldset className="fieldset-primatelj">
-                    <TextInput id="primatelj__ime" label="ime i prezime / naziv" onChange={this.handleInputChange} value={nalog.primatelj__ime} invalid={validation.primatelj__ime}/>
-                    <TextInput id="primatelj__adresa" label="adresa" onChange={this.handleInputChange} value={nalog.primatelj__adresa} invalid={validation.primatelj__adresa}/>
-                    <TextInput id="primatelj__gradMjesto" label="grad/mjesto" onChange={this.handleInputChange} value={nalog.primatelj__gradMjesto} invalid={validation.primatelj__gradMjesto}/>
+                    <ConnectedTextInput nalog={nalog} validation={validation} id="primatelj__ime" label="ime i prezime / naziv" onChange={this.handleInputChange} />
+                    <ConnectedTextInput nalog={nalog} validation={validation} id="primatelj__adresa" label="adresa" onChange={this.handleInputChange} />
+                    <ConnectedTextInput nalog={nalog} validation={validation} id="primatelj__gradMjesto" label="grad/mjesto" onChange={this.handleInputChange} />
                 </fieldset>
                 <fieldset className="fieldset-brojke">
-                    <TextInput id="iznos" label="iznos uplate" className="form-field--iznos" onChange={this.handleInputChange} value={nalog.iznos} invalid={validation.iznos}/>
-                    <TextInput id="primatelj__iban" label="IBAN primatelja" className="form-field--iban" onChange={this.handleInputChange} value={nalog.primatelj__iban} invalid={validation.primatelj__iban} maxLength={21}/>
+                    <ConnectedTextInput nalog={nalog} validation={validation} id="iznos" label="iznos uplate" className="form-field--iznos" onChange={this.handleInputChange}/>
+                    <ConnectedTextInput nalog={nalog} validation={validation} id="primatelj__iban" label="IBAN primatelja" className="form-field--iban" onChange={this.handleInputChange} maxLength={21}/>
                     <br/>
                     <PaymentModels id="primatelj__model" className="form-field--model" onChange={this.handleInputChange} value={nalog.primatelj__model} invalid={validation.primatelj__model}/>
-                    <TextInput id="primatelj__pozivNaBroj" className="form-field--poziv-na-broj" onChange={this.handleInputChange} value={nalog.primatelj__pozivNaBroj} invalid={validation.primatelj__pozivNaBroj}/>
+                    <ConnectedTextInput nalog={nalog} validation={validation} id="primatelj__pozivNaBroj" className="form-field--poziv-na-broj" onChange={this.handleInputChange} />
                     <IntentCodes id="sifra__namjene" className="form-field--sifra-namjene"  onChange={this.handleInputChange} value={nalog.sifra__namjene} invalid={validation.sifra__namjene}/>
                     <TextAreaInput id="opis_placanja" className="form-field--opis" label="opis plaćanja" onChange={this.handleInputChange} value={nalog.opis_placanja} invalid={validation.opis_placanja}/>
                 </fieldset>
