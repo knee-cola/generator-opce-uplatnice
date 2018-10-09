@@ -2,6 +2,7 @@ import { LoadDialogContainer } from 'LoadDialogContainer';
 import { SaveDialogContainer } from 'SaveDialogContainer';
 import { Forma } from 'Forma';
 import { FormatCurrency } from 'Format';
+import { reducer } from 'reducers';
 
 const _defaultState = {
     naziv_naloga: '',
@@ -20,6 +21,9 @@ const _defaultState = {
         opis_placanja: ''
     }
 };
+
+const store = Redux.createStore(reducer);
+console.log(store.getState());
 
 class App extends React.Component {
 
