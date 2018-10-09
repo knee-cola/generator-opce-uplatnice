@@ -1,10 +1,7 @@
-// ovo je generička komponenta
-import {TextInput} from 'TextInput';
-
 // Metoda komponentu spaja na Redux store i vraća takvu novu spojenu komponentu
 // Pri tome kreira closure putem kojeg parametrizira koje varijable će biti
 // iščupane iz store-a
-const connectComponent = (id) => {
+const createConnection = (id, Component) => {
 /*
     const mapStateToProps = (state, ownProps) => {
         return {
@@ -24,10 +21,10 @@ const connectComponent = (id) => {
         }
     }
 
-    return(ReactRedux.connect(mapStateToProps, mapDispatchToProps)(TextInput));
+    return(ReactRedux.connect(mapStateToProps, mapDispatchToProps)(Component));
 */
     return((props) => {
-        return(<TextInput value={props.nalog[id]} invalid={props.validation[id]} {...props} />)
+        return(<Component value={props.nalog[id]} invalid={props.validation[id]} {...props} />)
     });
 }
 
@@ -35,18 +32,18 @@ const _cache = { };
 
 // Konstruktor funkcija koja vraća instancu <TextInput/> komponente spojene na Redux store
 // > ovu funkciju je moguće koristiti kao klasičnu React komponentu
-const ConnectedTextInput = (props) => {
+const connect = Component => (props) => {
 
     let ConnectedComponent = _cache[props.id];
     
     if(!ConnectedComponent) {
-    // AKO već ne posjeduješ connected varijatnu komponente
+    // AKO već ne posjeduješ connected varijatnu zadane komponente
     // > kreiraj je
-        ConnectedComponent = _cache[props.id] = connectComponent(props.id);
+        ConnectedComponent = _cache[props.id] = createConnection(props.id, Component);
     }
 
     // vraćam instancu spojene komponente
     return(<ConnectedComponent {...props} />)
 }
 
-export { ConnectedTextInput };
+export { connect };

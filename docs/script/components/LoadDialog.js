@@ -1,4 +1,4 @@
-import { SpremljeniNaloziSelect } from 'Components';
+import { SpremljeniNaloziSelect } from 'SpremljeniNaloziSelect';
 
 class LoadDialog extends React.Component {
 

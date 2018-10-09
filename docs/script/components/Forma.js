@@ -1,5 +1,7 @@
-import { PaymentModels, IntentCodes, TextAreaInput } from 'Components';
-import { ConnectedTextInput } from 'ConnectedTextInput';
+import { ConnectedPaymentModels } from 'PaymentModels';
+import { ConnectedIntentCodes } from 'IntentCodes';
+import { ConnectedTextArea } from 'TextArea';
+import { ConnectedTextInput } from 'TextInput';
 import { Barcode } from 'Barcode';
 import { FormatCurrency } from 'Format';
 class Forma extends React.Component {
@@ -43,10 +45,10 @@ class Forma extends React.Component {
                     <ConnectedTextInput nalog={nalog} validation={validation} id="iznos" label="iznos uplate" className="form-field--iznos" onChange={this.handleInputChange}/>
                     <ConnectedTextInput nalog={nalog} validation={validation} id="primatelj__iban" label="IBAN primatelja" className="form-field--iban" onChange={this.handleInputChange} maxLength={21}/>
                     <br/>
-                    <PaymentModels id="primatelj__model" className="form-field--model" onChange={this.handleInputChange} value={nalog.primatelj__model} invalid={validation.primatelj__model}/>
+                    <ConnectedPaymentModels nalog={nalog} validation={validation} id="primatelj__model" className="form-field--model" onChange={this.handleInputChange} />
                     <ConnectedTextInput nalog={nalog} validation={validation} id="primatelj__pozivNaBroj" className="form-field--poziv-na-broj" onChange={this.handleInputChange} />
-                    <IntentCodes id="sifra__namjene" className="form-field--sifra-namjene"  onChange={this.handleInputChange} value={nalog.sifra__namjene} invalid={validation.sifra__namjene}/>
-                    <TextAreaInput id="opis_placanja" className="form-field--opis" label="opis plaćanja" onChange={this.handleInputChange} value={nalog.opis_placanja} invalid={validation.opis_placanja}/>
+                    <ConnectedIntentCodes nalog={nalog} validation={validation} id="sifra__namjene" className="form-field--sifra-namjene"  onChange={this.handleInputChange} />
+                    <ConnectedTextArea nalog={nalog} validation={validation} id="opis_placanja" className="form-field--opis" label="opis plaćanja" onChange={this.handleInputChange} />
                 </fieldset>
                 <Barcode {...this.props} />
                 <fieldset className="fieldset-potvrda">

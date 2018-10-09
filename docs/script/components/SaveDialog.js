@@ -1,4 +1,4 @@
-import { TextInput } from 'Components';
+import { TextInput } from 'TextInput';
 
 class SaveDialog extends React.Component {
 

@@ -1,3 +1,5 @@
+import { connect } from 'ReduxConnectionFactory';
+
 class TextInput extends React.Component {
     render() {
         let className = "form-field " + (this.props.className ? this.props.className : '') + (this.props.invalid ? ' form-field-invalid' : '')
@@ -9,4 +11,6 @@ class TextInput extends React.Component {
     }
 }
 
-export { TextInput }
+const ConnectedTextInput = connect(TextInput);
+
+export { TextInput, ConnectedTextInput }
