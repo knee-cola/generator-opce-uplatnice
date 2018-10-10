@@ -1,8 +1,16 @@
-// Metoda komponentu spaja na Redux store i vraća takvu novu spojenu komponentu
-// Pri tome kreira closure putem kojeg parametrizira koje varijable će biti
-// iščupane iz store-a
+import { updateValue } from 'actions';
+
+/**
+ * Metoda za zadanu komponentu kreira connected verziju, pri čemu je način mapiranja state-a na property-e parametriziran putem `id`-a
+ * @param {*} id jedinstvena oznaka instance komponente - odgovara nazivu varijable (key) u Redux store-u
+ * @param {*} Component komponenta koju treba spojiti na Redux
+ */
+// 
 const createConnection = (id, Component) => {
-/*
+
+    // map metode su kreirane unutar closure-a kako
+    // bi bila sačuvana vrijednost `id` parametra
+    // > ID komponente odgovara nazivu varijable (key) u Redux store-u
     const mapStateToProps = (state, ownProps) => {
         return {
             value: state.nalog[id],
@@ -15,23 +23,27 @@ const createConnection = (id, Component) => {
     const mapDispatchToProps = (dispatch, ownProps) => {
         return {
             onChange: (ev) => {
-                dispatch(setFieldValue(id, ev.target.value))
+                dispatch(updateValue(id, ev.target.value))
             },
             ...ownProps
         }
     }
 
     return(ReactRedux.connect(mapStateToProps, mapDispatchToProps)(Component));
-*/
-    return((props) => {
-        return(<Component value={props.nalog[id]} invalid={props.validation[id]} {...props} />)
-    });
+
+// slijedeće je klasičan način spajanja komponente ... korišten privremeno kao priprema za uvođenje Redux-a
+//    return((props) => {
+//        return(<Component value={props.nalog[id]} invalid={props.validation[id]} {...props} />)
+//    });
 }
 
 const _cache = { };
 
-// Konstruktor funkcija koja vraća instancu <TextInput/> komponente spojene na Redux store
-// > ovu funkciju je moguće koristiti kao klasičnu React komponentu
+/**
+ * Memoized Higher order funkcija koja za zadanu komponentu vraća,
+ * connected komponentu, koja se izravno može koristi u JSX-u
+ * @param {*} Component komponenta koju treba spojiti na Redux
+ */
 const connect = Component => (props) => {
 
     let ConnectedComponent = _cache[props.id];
