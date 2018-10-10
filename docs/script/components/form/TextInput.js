@@ -1,4 +1,4 @@
-import { connect } from 'ReduxConnectionFactory';
+import { connect } from 'ReduxConnector';
 
 class TextInput extends React.Component {
     render() {

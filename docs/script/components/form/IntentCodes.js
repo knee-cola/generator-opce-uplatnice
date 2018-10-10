@@ -1,5 +1,5 @@
 import {SelectBase} from 'SelectBase';
-import {connect} from 'ReduxConnectionFactory';
+import {connect} from 'ReduxConnector';
 
 class IntentCodes extends React.Component {
     render() {

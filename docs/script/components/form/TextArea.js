@@ -1,4 +1,4 @@
-import {connect} from 'ReduxConnectionFactory';
+import {connect} from 'ReduxConnector';
 
 class TextArea extends React.Component {
     render() {
