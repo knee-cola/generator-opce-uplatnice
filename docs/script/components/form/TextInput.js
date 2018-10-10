@@ -1,15 +1,13 @@
 import { connect } from 'ReduxConnector';
 
-class TextInput extends React.Component {
-    render() {
-        let className = "form-field " + (this.props.className ? this.props.className : '') + (this.props.invalid ? ' form-field-invalid' : '')
+const TextInput = (props) => {
+        let className = "form-field " + (props.className ? props.className : '') + (props.invalid ? ' form-field-invalid' : '')
 
         return(<div>
-            <input id={this.props.id} className={className} type="text" value={this.props.value} onChange={this.props.onChange} placeholder={this.props.label} maxLength={this.props.maxLength} autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false" />
-            {this.props.children}
+            <input id={props.id} className={className} type="text" value={props.value} onChange={props.onChange} placeholder={props.label} maxLength={props.maxLength} autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false" />
+            {props.children}
         </div>);
-    }
-}
+};
 
 const ConnectedTextInput = connect(TextInput);
 
