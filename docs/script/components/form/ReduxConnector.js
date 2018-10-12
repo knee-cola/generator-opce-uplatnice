@@ -1,4 +1,5 @@
 import { updateValue } from 'actions';
+import { paramName } from 'paymentParamsFacade';
 
 /**
  * Metoda za zadanu komponentu kreira connected verziju, pri čemu je način mapiranja state-a na property-e parametriziran putem `id`-a
@@ -12,9 +13,13 @@ const createConnection = (id, Component) => {
     // bi bila sačuvana vrijednost `id` parametra
     // > ID komponente odgovara nazivu varijable (key) u Redux store-u
     const mapStateToProps = (state, ownProps) => {
+        const value = state.nalog[id],
+              validationFn = BarcodePayment.validate[paramName[id]],
+              invalid = validationFn(value)!==0; // < ova vrijednost se dinamički određuje
+
         return {
-            value: state.nalog[id],
-            invalid: state.validation[id],
+            value,
+            invalid,
 
             ...ownProps // ovo su svi ostali property-i koji mogu biti zadani
         }

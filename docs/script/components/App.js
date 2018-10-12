@@ -1,7 +1,6 @@
 import { LoadDialogContainer } from 'LoadDialogContainer';
 import { SaveDialogContainer } from 'SaveDialogContainer';
 import { Forma } from 'Forma';
-import { FormatCurrency } from 'Format';
 import { reducer } from 'reducers';
 
 const store = Redux.createStore(reducer);
@@ -50,49 +49,6 @@ class App extends React.Component {
                 break;
         }
     }
-
-//    getPaymentParams() {
-//        const paymentParams = new BarcodePayment.PaymentParams(),
-//              nalog = this.state.nalog;
-//        
-//        paymentParams.Iznos =  FormatCurrency(nalog.iznos);
-//        paymentParams.ImePlatitelja = nalog.platitelj__ime;
-//        paymentParams.AdresaPlatitelja = nalog.platitelj__adresa;
-//        paymentParams.SjedistePlatitelja = nalog.platitelj__gradMjesto.trim();
-//        paymentParams.Primatelj = nalog.primatelj__ime;
-//        paymentParams.AdresaPrimatelja = nalog.primatelj__adresa;
-//        paymentParams.SjedistePrimatelja = nalog.primatelj__gradMjesto.trim();
-//        paymentParams.IBAN = nalog.primatelj__iban;
-//        paymentParams.ModelPlacanja = nalog.primatelj__model;
-//        paymentParams.PozivNaBroj = nalog.primatelj__pozivNaBroj;
-//        paymentParams.SifraNamjene = nalog.sifra__namjene;
-//        // opis plaćanja automatski skraćujem na dopušteni broj znakova
-//        paymentParams.OpisPlacanja = nalog.opis_placanja.substr(0, BarcodePayment.MaxLengths.Description).replace(/\n/g," ");
-//        
-//        return paymentParams;
-//    }
-//
-//    validateParams(paymentParams) {
-//
-//        const resultCode = BarcodePayment.ValidatePaymentParams(paymentParams);
-//        const resultEnum = BarcodePayment.ValidationResult;
-//
-//        return({
-//            resultCode: resultCode,
-//            platitelj__ime: (resultCode & resultEnum.PayerNameInvalid || resultCode & resultEnum.PayerNameMaxLengthExceeded),
-//            platitelj__adresa: (resultCode & resultEnum.PayerAddressInvalid || resultCode & resultEnum.PayerAddressMaxLengthExceeded),
-//            platitelj__gradMjesto: (resultCode & resultEnum.PayerHQInvalid || resultCode & resultEnum.PayerHQMaxLengthExceeded),
-//            primatelj__ime: (resultCode & resultEnum.ReceiverNameInvalid || resultCode & resultEnum.ReceiverNameMaxLengthExceeded),
-//            primatelj__adresa: (resultCode & resultEnum.ReceiverAddressInvalid || resultCode & resultEnum.ReceiverAddressMaxLengthExceeded),
-//            primatelj__gradMjesto: (resultCode & resultEnum.ReceiverHQInvalid || resultCode & resultEnum.ReceiverHQMaxLengthExceeded),
-//            primatelj__iban: (resultCode & resultEnum.IBANInvalid || resultCode & resultEnum.IBANMaxLengthExceeded),
-//            iznos: (resultCode & resultEnum.PricePatternInvalid || resultCode & resultEnum.PriceMaxLengthExceeded),
-//            primatelj__model: (resultCode & resultEnum.PaymentModelInvalid || resultCode & resultEnum.PaymentModelMaxLengthExceeded),
-//            primatelj__pozivNaBroj: (resultCode & resultEnum.CalloutNumberInvalid || resultCode & resultEnum.CalloutNumberMaxLengthExceeded),
-//            sifra__namjene: (resultCode & resultEnum.IntentCodeInvalid || resultCode & resultEnum.IntentCodeMaxLengthExceeded),
-//            opis_placanja: (resultCode & resultEnum.DescriptionInvalid || resultCode & resultEnum.DescriptionMaxLengthExceeded)
-//        });
-//    }
 
     render() {
 //        const nalog=this.state.nalog,

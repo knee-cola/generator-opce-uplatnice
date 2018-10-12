@@ -48,14 +48,12 @@
 	const _currency = "HRK"
 	const _paymentModelPrefix = "HR";
 
-	const _settings;
+	let _settings ={
+		ValidateIBAN: false, // TODO: Implement IBAN validation
+		ValidateModelPozivNaBroj: false // TODO: Implement callout number validation
+	};
 
 	const BarcodePayment = new function() {
-		
-		this.Defaults = {
-			ValidateIBAN: false, // TODO: Implement IBAN validation
-			ValidateModelPozivNaBroj: false // TODO: Implement callout number validation
-		}
 		
 		// Public functions
 		this.GetLength = function(str) {
@@ -149,7 +147,7 @@
 			// Intent code
 			result = this.validate.SifraNamjene(paymentParams.SifraNamjene);
 			// Description
-			result = this.validate.Opis(paymentParams.Opis);
+			result = this.validate.OpisPlacanja(paymentParams.Opis);
 			
 			return result;
 		}
@@ -484,7 +482,7 @@
 		
 		// Initialization method
 		this.Init = function(settings) {
-			_settings = jQuery.extend({}, BarcodePayment.Defaults, settings);
+			_settings = jQuery.extend(_settings, settings);
 		}
 
 		this.validate = {
@@ -622,7 +620,7 @@
 				return result;
 			},
 			
-			Opis: function(value) {
+			OpisPlacanja: function(value) {
 				let fieldLength = BarcodePayment.GetLength(value),
 					result = BarcodePayment.ValidationResult.OK;
 
