@@ -1,4 +1,5 @@
 import { SaveDialog } from 'SaveDialog';
+import { updateValue } from 'actions';
 
 class SaveDialogContainer extends React.Component {
 
@@ -23,10 +24,10 @@ class SaveDialogContainer extends React.Component {
     }
 
     spremiNalog() {
-        let naziv = this.props.naziv_naloga.trim();
+        let naziv = this.props.nalog.naziv.trim();
         if(this.validateNaziv(naziv)) {
 
-            let nalogJson = JSON.stringify({ naziv_naloga: naziv, nalog: this.props.nalog }),
+            let nalogJson = JSON.stringify(this.props.nalog),
                 recordName = naziv.replace(/\s+/g,'-').toLocaleLowerCase();
 
             localStorage.setItem(recordName, nalogJson);
@@ -37,11 +38,11 @@ class SaveDialogContainer extends React.Component {
     }
 
     downloadNalog() {
-        let naziv = this.props.naziv_naloga.trim();
+        let naziv = this.props.nalog.naziv.trim();
 
         if(this.validateNaziv(naziv)) {
 
-            const nalogJson = JSON.stringify({ naziv_naloga: naziv, nalog: this.props.nalog }, null, 2),
+            const nalogJson = JSON.stringify(this.props.nalog, null, 2),
                 fileName = naziv.replace(/\s+/g,'-').toLocaleLowerCase(),
                 blob = new Blob([nalogJson], {type : 'application/json'});
             
@@ -78,7 +79,7 @@ class SaveDialogContainer extends React.Component {
             validationMsg: ''
         });
     }
-
+    
     showMsg(msgText, msgType) {
         this.setState({
             validationMsgType: msgType,
@@ -90,14 +91,34 @@ class SaveDialogContainer extends React.Component {
 
     render() {
         return(<SaveDialog
-                naziv_naloga={this.props.naziv_naloga}
+                naziv_naloga={this.props.nalog.naziv}
+                onNazivChange={this.props.onNazivChange}
                 validationMsg={this.state.validationMsg}
                 validationMsgType={this.state.validationMsgType}
-
-                onNazivChange={this.props.onNazivChange}
                 onSave2BrowserClick={this.handleSave2BrowserClick}
                 onSave2FileClick={this.handleSave2FileClick} />);
     }
 }
 
-export { SaveDialogContainer }
+
+const mapStateToProps = (state, ownProps) => {
+
+    return({
+        nalog: state.nalog,
+        ...ownProps // ovo su svi ostali property-i koji mogu biti zadani
+    });
+};
+
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        onNazivChange: (value) => {
+            dispatch(updateValue('naziv', value));
+        },
+        ...ownProps
+    }
+}
+
+const ConnectedSaveDialog = ReactRedux.connect(mapStateToProps, mapDispatchToProps)(SaveDialogContainer);
+
+export { SaveDialogContainer, ConnectedSaveDialog }

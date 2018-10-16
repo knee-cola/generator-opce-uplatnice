@@ -10,6 +10,6 @@ export function clearForm(id, value) {
     return { type: CLEAR_FORM }
 };
 
-export function loadNalog(loadedData) {
-    return { type: LOAD_NALOG, nalog: loadedData.nalog, naziv: loadedData.naziv_naloga }
+export function loadNalog(nalog) {
+    return { type: LOAD_NALOG, nalog: nalog, naziv: nalog.naziv }
 };

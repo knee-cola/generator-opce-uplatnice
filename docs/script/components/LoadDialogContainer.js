@@ -62,7 +62,7 @@ class LoadDialogContainer extends React.Component {
     }
 
     getPopisNaloga() {
-        return(Object.entries(localStorage).map(el => { return({ key:el[0], naziv_naloga:JSON.parse(el[1]).naziv_naloga });}));
+        return(Object.entries(localStorage).map(el => { return({ key:el[0], naziv:JSON.parse(el[1]).naziv });}));
     }
 
     ucitajNalog() {

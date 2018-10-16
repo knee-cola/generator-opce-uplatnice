@@ -44,7 +44,7 @@ class LoadDialog extends React.Component {
 
         return(
             <fieldset className="fieldset-load-dialog">
-                <SpremljeniNaloziSelect popisNaloga={popisNaloga} value={ this.props.selectedKey } onChange={this.props.handleInputChange} >
+                <SpremljeniNaloziSelect popisNaloga={popisNaloga} value={ this.props.selectedKey } onChange={this.handleInputChange} >
                     <button id="fieldset-load-dialog__load" onClick={this.handleClick} disabled={popisNaloga.length==0}>Učitaj odabrani nalog</button>
                     <button id="fieldset-load-dialog__delete" onClick={this.handleClick} disabled={popisNaloga.length==0}>Obriši odabrani nalog</button>
                     <input className="fieldset-load-dialog__load-file" type="file" id="load-file" name="load-file" onChange={this.handleFileSelected} accept=".json" ref={this.loadFileRef} />

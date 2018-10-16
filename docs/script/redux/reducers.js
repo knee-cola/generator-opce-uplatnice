@@ -2,6 +2,7 @@ import { UPDATE_VALUE, CLEAR_FORM, LOAD_NALOG } from 'actions'
 
 const _defaultState = {
     nalog: {
+        naziv: '',
         platitelj__ime: '',
         platitelj__adresa: '',
         platitelj__gradMjesto: '',
