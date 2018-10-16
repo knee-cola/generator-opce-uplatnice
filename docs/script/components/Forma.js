@@ -4,17 +4,8 @@ import { ConnectedTextArea } from 'TextArea';
 import { ConnectedTextInput } from 'TextInput';
 import { ConnectedPotvrda } from 'Potvrda';
 import { ConnectedBarcode } from 'Barcode';
+import { ConnectedButtonBox } from 'ButtonBox';
 class Forma extends React.Component {
-    constructor() {
-        super();
-
-        this.handleOnClick = this.handleOnClick.bind(this);
-    }
-
-    handleOnClick(ev) {
-        ev.preventDefault();
-        this.props.onAction(ev.target.name);
-    }
 
     render() {
 
@@ -42,10 +33,8 @@ class Forma extends React.Component {
                 </fieldset>
                 <ConnectedBarcode {...this.props} />
                 <ConnectedPotvrda />
-                <fieldset className="fieldset-novi-nalog">
-                    <button name="novi-nalog" onClick={this.handleOnClick}>NOVI NALOG</button>
-                    <button name="print" onClick={this.handleOnClick}>ISPIS NALOGA</button>
-                </fieldset>
+                <ConnectedButtonBox />
+
             </form>
         );
     }

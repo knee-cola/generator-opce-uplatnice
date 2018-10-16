@@ -11,7 +11,6 @@ class App extends React.Component {
         super(props);
 
         this.handleNalogLoad = this.handleNalogLoad.bind(this);
-        this.handleFormAction = this.handleFormAction.bind(this);
         this.handleNazivChange = this.handleNazivChange.bind(this);
 
         BarcodePayment.Init({
@@ -30,17 +29,6 @@ class App extends React.Component {
         this.setState(nalogData);
     }
 
-    handleFormAction(action) {
-        switch(action) {
-            case 'novi-nalog':
-                this.setState(_defaultState);
-                break;
-            case 'print':
-                window.print();
-                break;
-        }
-    }
-
     render() {
 
         return(
@@ -48,7 +36,7 @@ class App extends React.Component {
                 <SaveDialogContainer {...this.state} onNazivChange={this.handleNazivChange} />
                 <LoadDialogContainer onNalogLoad={this.handleNalogLoad} />
                 <ReactRedux.Provider store={store}>
-                    <Forma onAction={this.handleFormAction} />
+                    <Forma />
                 </ReactRedux.Provider>
             </div>);
     }

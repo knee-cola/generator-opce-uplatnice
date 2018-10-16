@@ -1,5 +1,4 @@
-import { UPDATE_VALUE } from 'actions'
-import { FormatCurrency } from 'Format';
+import { UPDATE_VALUE, CLEAR_FORM } from 'actions'
 
 const _defaultState = {
     nalog: {
@@ -22,6 +21,8 @@ const nalog = (state, action) => {
     switch(action.type) {
         case UPDATE_VALUE:
             return(Object.assign({}, state, { [action.id]:action.value }));
+        case CLEAR_FORM:
+            return(Object.assign({}, state, _defaultState.nalog));
     }
 
     return(state);
