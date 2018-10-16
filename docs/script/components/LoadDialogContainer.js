@@ -1,5 +1,5 @@
 import { LoadDialog } from 'LoadDialog';
-
+import { loadNalog } from 'actions';
 class LoadDialogContainer extends React.Component {
 
     constructor() {
@@ -112,4 +112,17 @@ class LoadDialogContainer extends React.Component {
     }
 }
 
-export { LoadDialogContainer };
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        onNalogLoad: (loadedData) => {
+            dispatch(loadNalog(loadedData));
+        },
+        ...ownProps
+    }
+}
+
+const ConnectedLoadDialog = ReactRedux.connect(null, mapDispatchToProps)(LoadDialogContainer);
+
+
+export { LoadDialogContainer, ConnectedLoadDialog };

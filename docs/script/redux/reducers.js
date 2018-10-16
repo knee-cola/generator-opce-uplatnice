@@ -1,4 +1,4 @@
-import { UPDATE_VALUE, CLEAR_FORM } from 'actions'
+import { UPDATE_VALUE, CLEAR_FORM, LOAD_NALOG } from 'actions'
 
 const _defaultState = {
     nalog: {
@@ -23,6 +23,8 @@ const nalog = (state, action) => {
             return(Object.assign({}, state, { [action.id]:action.value }));
         case CLEAR_FORM:
             return(Object.assign({}, state, _defaultState.nalog));
+        case LOAD_NALOG:
+            return(Object.assign({}, state, action.nalog));
     }
 
     return(state);

@@ -1,4 +1,4 @@
-import { LoadDialogContainer } from 'LoadDialogContainer';
+import { ConnectedLoadDialog } from 'LoadDialogContainer';
 import { SaveDialogContainer } from 'SaveDialogContainer';
 import { Forma } from 'Forma';
 import { reducer } from 'reducers';
@@ -10,7 +10,6 @@ class App extends React.Component {
     constructor(props) {
         super(props);
 
-        this.handleNalogLoad = this.handleNalogLoad.bind(this);
         this.handleNazivChange = this.handleNazivChange.bind(this);
 
         BarcodePayment.Init({
@@ -25,18 +24,16 @@ class App extends React.Component {
         });
     }
 
-    handleNalogLoad(nalogData) {
-        this.setState(nalogData);
-    }
-
     render() {
 
         return(
             <div>
                 <SaveDialogContainer {...this.state} onNazivChange={this.handleNazivChange} />
-                <LoadDialogContainer onNalogLoad={this.handleNalogLoad} />
                 <ReactRedux.Provider store={store}>
-                    <Forma />
+                    <div>
+                        <ConnectedLoadDialog />
+                        <Forma />
+                    </div>
                 </ReactRedux.Provider>
             </div>);
     }
