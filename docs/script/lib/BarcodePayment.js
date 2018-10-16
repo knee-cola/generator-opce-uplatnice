@@ -147,7 +147,7 @@
 			// Intent code
 			result = this.validate.SifraNamjene(paymentParams.SifraNamjene);
 			// Description
-			result = this.validate.OpisPlacanja(paymentParams.Opis);
+			result = this.validate.OpisPlacanja(paymentParams.OpisPlacanja);
 			
 			return result;
 		}

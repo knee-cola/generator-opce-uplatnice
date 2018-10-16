@@ -10,7 +10,6 @@ class App extends React.Component {
     constructor(props) {
         super(props);
 
-//        this.handleUserInput = this.handleUserInput.bind(this);
         this.handleNalogLoad = this.handleNalogLoad.bind(this);
         this.handleFormAction = this.handleFormAction.bind(this);
         this.handleNazivChange = this.handleNazivChange.bind(this);
@@ -31,14 +30,6 @@ class App extends React.Component {
         this.setState(nalogData);
     }
 
-//    handleUserInput(inputId, inputValue) {
-//        const nalog = this.state.nalog;
-//
-//        nalog[inputId] = inputValue;
-//
-//        this.setState({ nalog: nalog });
-//    }
-
     handleFormAction(action) {
         switch(action) {
             case 'novi-nalog':
@@ -51,11 +42,6 @@ class App extends React.Component {
     }
 
     render() {
-//        const nalog=this.state.nalog,
-//              paymentParams = this.getPaymentParams(),
-//              validation = this.validateParams(paymentParams),
-//              encodedText = BarcodePayment.GetEncodedText(paymentParams);
-//              // nalog={nalog} validation={validation} encodedText={encodedText};
 
         return(
             <div>

@@ -3,7 +3,7 @@ import { ConnectedIntentCodes } from 'IntentCodes';
 import { ConnectedTextArea } from 'TextArea';
 import { ConnectedTextInput } from 'TextInput';
 import { ConnectedPotvrda } from 'Potvrda';
-import { Barcode } from 'Barcode';
+import { ConnectedBarcode } from 'Barcode';
 class Forma extends React.Component {
     constructor() {
         super();
@@ -40,7 +40,7 @@ class Forma extends React.Component {
                     <ConnectedIntentCodes id="sifra__namjene" className="form-field--sifra-namjene"  />
                     <ConnectedTextArea id="opis_placanja" className="form-field--opis" label="opis plaćanja" />
                 </fieldset>
-                <Barcode {...this.props} />
+                <ConnectedBarcode {...this.props} />
                 <ConnectedPotvrda />
                 <fieldset className="fieldset-novi-nalog">
                     <button name="novi-nalog" onClick={this.handleOnClick}>NOVI NALOG</button>

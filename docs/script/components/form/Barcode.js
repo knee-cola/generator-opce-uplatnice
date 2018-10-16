@@ -1,3 +1,5 @@
+import { nalog2params } from 'paymentParamsFacade';
+
 class Barcode extends React.Component {
 
     componentDidUpdate() {
@@ -25,7 +27,7 @@ class Barcode extends React.Component {
 		} 
 
 		// Barcode generation sample copied from library sample
-		PDF417.init(this.props.encodedText);
+		PDF417.init(encodedText);
 		var barcode = PDF417.getBarcodeArray();
 
 		// block sizes (width and height) in pixels
@@ -76,4 +78,14 @@ class Barcode extends React.Component {
     }
 }
 
-export { Barcode }
+const mapStateToProps = (state, ownProps) => {
+    return({
+		encodedText: BarcodePayment.GetEncodedText(nalog2params(state.nalog)),
+        ...ownProps // ovo su svi ostali property-i koji mogu biti zadani
+    });
+};
+
+const ConnectedBarcode = ReactRedux.connect(mapStateToProps)(Barcode);
+
+
+export { Barcode, ConnectedBarcode }

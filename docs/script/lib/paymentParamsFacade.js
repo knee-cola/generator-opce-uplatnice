@@ -27,3 +27,16 @@ export const paramName = {
     sifra__namjene: 'SifraNamjene',
     opis_placanja: 'OpisPlacanja'
 }
+
+export const nalog2params = nalog => {
+    const paymentParams = new BarcodePayment.PaymentParams();
+
+    // prepisujem payment params iz 
+    for(var key in nalog) {
+        if(nalog.hasOwnProperty(key) && paramName.hasOwnProperty(key)) {
+            paymentParams[ paramName[key] ] = nalog[key];
+        }
+    }
+
+    return(paymentParams);
+}
