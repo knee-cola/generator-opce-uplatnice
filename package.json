@@ -1,0 +1,25 @@
+{
+  "name": "generator-opce-uplatnice",
+  "version": "1.0.0",
+  "description": "Ovo je source kod generatora naloga za plaćanje HUB 3A sa 2D kodom (opće uplatnice).",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/knee-cola/generator-opce-uplatnice.git"
+  },
+  "author": "Nikola Derežić",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/knee-cola/generator-opce-uplatnice/issues"
+  },
+  "homepage": "https://github.com/knee-cola/generator-opce-uplatnice#readme",
+  "devDependencies": {
+    "typescript": "^3.7.2"
+  }
+}
