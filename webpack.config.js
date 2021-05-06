@@ -21,6 +21,11 @@ module.exports = (env, argv) => {
     // u dev okruženju kreiram brze "eval" source maps
     // u produkciji kreiram prave source-mape koje će biti uploadane na Raygun
     devtool: devMode ? "eval-source-map" : "source-map",
+    devServer: {
+      contentBase: DEST_DIR,
+      compress: true,
+      port: 3000,
+    },
     module: {
       rules: [
         {

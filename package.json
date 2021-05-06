@@ -10,7 +10,7 @@
     "clean": "rm dist/bundle.js",
     "build-dev": "webpack --mode development",
     "build-prod": "webpack --mode production",
-    "watch": "webpack --watch --mode development"
+    "start": "webpack serve --mode development"
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.13.10",

@@ -1,0 +1,44 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+        {
+            "label": "start-webpack",
+            "type": "npm",
+            "script": "start",
+            "path": "/",
+            "presentation": {
+                "echo": false,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "isBackground": true,
+            "problemMatcher": {
+                // da ovaj matcher ne bi detektirao greške i nakon što su ispravljene
+                // dodatno je instaliran `clean-terminal-webpack-plugin`,
+                // koji očisti konzolu prije svakog rebuild-a
+                "pattern": {
+                    "regexp": "^((Aggregate|Eval|Internal|Range|Reference|Syntax|Type|URI)Error): ([^:]+): [^(]+ \\((\\d+):(\\d+)\\)",
+                    "message": 1,
+                    "file": 3,
+                    "line": 4,
+                    "column": 5,
+                },
+                "fileLocation": "absolute",
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^Entrypoint main.+",
+                    "endsPattern": "^webpack [0-9.]+ compiled .+"
+                }
+            }
+        },
+        {
+            "label": "terminate-all-tasks",
+            "command": "echo ${input:terminate}",
+            "type": "shell",
+            "problemMatcher": []
+        },
+	]
+}
