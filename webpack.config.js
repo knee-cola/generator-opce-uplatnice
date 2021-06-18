@@ -8,23 +8,23 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = (env, argv) => {
 
   const BASE_PATH = "/";
-  const DEST_DIR = "../docs";
+  const DEST_DIR = "./docs";
 
   const devMode = argv.mode !== 'production';
 
   const config = {
     entry: './src/entry.tsx',
     output: {
-      path: path.resolve(__dirname, `${DEST_DIR}/public`),
+      path: path.resolve(__dirname, `${DEST_DIR}`),
       filename: devMode ? `script/[name].js` : `script/[name].[contenthash].js` // in dev env don't hash the filename
     },
     // u dev okruženju kreiram brze "eval" source maps
     // u produkciji kreiram prave source-mape koje će biti uploadane na Raygun
     devtool: devMode ? "eval-source-map" : "source-map",
     devServer: {
-      contentBase: DEST_DIR,
+//nije potrebno      contentBase: path.resolve(__dirname, DEST_DIR),
       compress: true,
-      port: 3000,
+      port: 3000
     },
     module: {
       rules: [
@@ -60,7 +60,7 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        path: DEST_DIR,
+//nije potrebno        path: path.resolve(__dirname, DEST_DIR),
         publicPath: BASE_PATH
       }),
       new MiniCssExtractPlugin({
@@ -74,7 +74,7 @@ module.exports = (env, argv) => {
         patterns: [
             { from: 'src/static-files' }
         ]
-    })
+      })
     ],
     optimization: {
       runtimeChunk: 'single',
