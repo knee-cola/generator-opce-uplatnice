@@ -20,7 +20,14 @@
 	
 	const EncodePrice = function(price) {
 		var fullLength = 15;
-		return PadLeft(price.replace(',', ''), fullLength, '0');
+
+		if(price.includes(',')) {
+			return PadLeft(price.replace(',', ''), fullLength, '0');
+		}
+		else {
+			price = price.concat(",00"); //Workaround for price without decimals.
+			return PadLeft(price.replace(',', ''), fullLength, '0');
+		}
 	}
 	
 	const ConcatenateStrings = function() {
@@ -46,7 +53,7 @@
 	const _delimiter = String.fromCharCode(0x0A);
 	const _header = "HRVHUB30";
 	const _currency = "HRK"
-	const _paymentModelPrefix = "HR";
+	const _paymentModelPrefix = "";
 
 	let _settings ={
 		ValidateIBAN: false, // TODO: Implement IBAN validation
