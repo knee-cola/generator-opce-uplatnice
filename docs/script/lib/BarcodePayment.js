@@ -45,7 +45,7 @@
 	
 	const _delimiter = String.fromCharCode(0x0A);
 	const _header = "HRVHUB30";
-	const _currency = "HRK"
+	const _currency = "EUR"
 	const _paymentModelPrefix = "HR";
 
 	let _settings ={
